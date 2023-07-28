@@ -3,6 +3,7 @@ import Cards from "./components/Cards.jsx";
 import { Nav } from './components/Nav';
 import { useState } from 'react';
 import axios from 'axios';
+//import characters from './data.js';
 
 function App() {
   const [characters, setCharacters] = useState([]);
@@ -36,17 +37,16 @@ function App() {
   };
 
   const onClose = (id) => {
-    const parsedId = parseInt(id); // Parséa el id recibido a un número
-    const filteredCharacters = characters.filter((character) => character.id !== parsedId);
-    // Realiza un filtro en tu estado local para obtener los personajes cuyo id sea distinto al recibido por parámetro
-    // characters es tu estado local que contiene los personajes
-    setCharacters(filteredCharacters); // Actualiza el estado con los personajes filtrados
+    setCharacters((oldChars)=> oldChars.filter((ch)=>ch.id !== +id));
   };
 
   return (
    <div className='App'>
      <Nav onSearch={onSearch} />
-     <Cards characters={characters} />
+     <Cards 
+     characters={characters}
+     onClose={onClose} 
+     />
    </div>
  );
 }

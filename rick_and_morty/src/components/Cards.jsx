@@ -1,13 +1,14 @@
 import Card from "./Card";
 
-export default function Cards({ characters }) {
-   const onClose = () => window.alert("emulamos que se cierra la card");
+export default function Cards({ characters, onClose }) {
+   //const onClose = () => window.alert("emulamos que se cierra la card");
    return (
    <div>
       {characters.map(({ id, name, species, gender, image })=>{
         return (
          <Card 
             key={id}
+            id={id}
            name={name}
            species={species}
            gender={gender}
