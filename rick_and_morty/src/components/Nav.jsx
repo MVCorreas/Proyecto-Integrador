@@ -1,10 +1,19 @@
-import React from 'react';
-import SearchBar from './SearchBar';
+import SearchBar from "./SearchBar";
+import {Link} from 'react-router-dom'
 
-export const Nav = ({ onSearch }) => {
+export default function Nav({ onSearch, onRandom }) {
   return (
-    <div>
+    <>
+    <Link to='/about'>
+      <button>About</button>
+    </Link>
+    <Link to='/home'>
+    <button>Home</button>
+  </Link>
+    <nav>
       <SearchBar onSearch={onSearch} />
-    </div>
+      <button onClick={onRandom}>Random</button>
+    </nav>
+    </>
   );
-};
+}

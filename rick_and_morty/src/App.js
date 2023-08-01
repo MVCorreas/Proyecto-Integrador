@@ -1,54 +1,90 @@
-import './App.css';
+import { useState } from "react";
+import axios from "axios";
+import "./App.css";
 import Cards from "./components/Cards.jsx";
-import { Nav } from './components/Nav';
-import { useState } from 'react';
-import axios from 'axios';
-//import characters from './data.js';
+import Nav from "./components/Nav.jsx";
+import {Routes, Route} from 'react-router-dom';
+import { About } from "./Views/About";
+import { Detail } from "./Views/Detail";
 
 function App() {
   const [characters, setCharacters] = useState([]);
 
-//   const example = {
-//     id: 1,
-//     name: 'Rick Sanchez',
-//     status: 'Alive',
-//     species: 'Human',
-//     gender: 'Male',
-//     origin: {
-//       name: 'Earth (C-137)',
-//       url: 'https://rickandmortyapi.com/api/location/1',
-//     },
-//     image: 'https://rickandmortyapi.com/api/character/avatar/1.jpeg',
-//   };
-  //const Rick = example; // Define Rick as an alias for the example object
+  // Función para obtener todos los personajes
+  const onSearch = (id) => {
+    if (isNaN(id)) {
+      alert("Por favor, ingresa un número válido como ID.");
+      return;
+    }
 
-  //   function onSearch() {
-  //     setCharacters([example]);
-  //   }
+    axios(`https://rickandmortyapi.com/api/character/${id}`)
+      .then(({ data }) => {
+        if (data.name) {
+          const characterExists = characters.some(
+            (character) => character.id === data.id
+          );
 
-  function onSearch(id) {
-    axios(`https://rickandmortyapi.com/api/character/${id}`).then(({ data }) => {
-      if (data.name) {
-        setCharacters((oldChars) => [...oldChars, data]);
-      } else {
-        window.alert('¡No hay personajes con este ID!');
-      }
-    });
+          if (characterExists) {
+            alert("Este personaje ya se encuentra en la lista.");
+          } else {
+            setCharacters((characters) => [...characters, data]);
+          }
+        } else {
+          alert(`¡No hay personajes con el ID proporcionado!`);
+        }
+      })
+      .catch((error) => {
+        alert(
+          `Ocurrió un error al obtener los datos de la API. Por favor, intenta nuevamente más tarde.`
+        );
+        console.error(error);
+      });
   };
 
+  // Función para obtener un personaje aleatorio
+  const randomCharacter = () => {
+    const randomId = Math.floor(Math.random() * 826) + 1;
+
+    axios(`https://rickandmortyapi.com/api/character/${randomId}`)
+      .then(({ data }) => {
+        if (data.name) {
+          const characterExists = characters.includes(data);
+
+          if (characterExists) {
+            alert("Este personaje ya se encuentra en la lista.");
+          } else {
+            setCharacters((characters) => [...characters, data]);
+          }
+        } else {
+          alert(`¡No hay personajes con el ID proporcionado!`);
+        }
+      })
+      .catch((error) => {
+        alert(
+          `Ocurrió un error al obtener los datos de la API. Por favor, intenta nuevamente más tarde.`
+        );
+        console.error(error);
+      });
+  };
+
+  // Función para eliminar un personaje
   const onClose = (id) => {
-    setCharacters((oldChars)=> oldChars.filter((ch)=>ch.id !== +id));
+    const charactersFiltered = characters.filter(
+      (character) => character.id !== parseInt(id)
+    );
+    setCharacters(charactersFiltered);
   };
 
   return (
-   <div className='App'>
-     <Nav onSearch={onSearch} />
-     <Cards 
-     characters={characters}
-     onClose={onClose} 
-     />
-   </div>
- );
+    <div className="App">
+      <Nav onSearch={onSearch} onRandom={randomCharacter} />
+     <Routes>
+      <Route path='/home' element={<Cards characters={characters} onClose={onClose}/>}/>
+      <Route path='/about' element={<About/>} />
+      <Route path='/detail/:id' element={<Detail/>} />
+     </Routes>
+    </div>
+  );
 }
 
 export default App;
