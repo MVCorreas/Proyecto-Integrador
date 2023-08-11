@@ -4,9 +4,9 @@ import "./App.css";
 import Cards from "./components/Cards/Cards.jsx";
 import Nav from "./components/Nav/Nav.jsx";
 import {Routes, Route, useLocation, useNavigate} from 'react-router-dom';
-import { About } from "./components/About/About";
-import { Detail } from "./Views/Detail";
-import { Form } from "./components/Form/Form.jsx";
+import { About } from "./Views/About/About";
+import { Detail } from "./Views/Detail/Detail";
+import {Form} from "./components/Form/Form.jsx";
 import Favorites  from "./components/Favorites/Favorites";
 
 function App() {

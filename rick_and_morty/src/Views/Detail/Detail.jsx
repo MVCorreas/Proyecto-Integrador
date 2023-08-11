@@ -1,21 +1,28 @@
 import React from 'react';
-import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { getCharacterDetail } from '../../redux/actions';
 
 export const Detail = () => {
    const {id} = useParams();
-   const [character, setCharacter] = useState({});
+   //const [character, setCharacter] = useState({});
+   const character = useSelector(state => state.characterDetail) //ahora el estado no es local, sino global. Empleo el useEffect para hacer un fecth a una action que hace peticion a la API   const dispatch = useDispatch()
+   const dispatch = useDispatch();
    
+   // useEffect(() => {
+   //    axios(`https://rickandmortyapi.com/api/character/${id}`).then(({ data }) => {
+   //       if (data.name) {
+   //          setCharacter(data);
+   //       } else {
+   //          window.alert('No hay personajes con ese ID');
+   //       }
+   //    });
+   //    return setCharacter({});
+   // }, [id]);
+
    useEffect(() => {
-      axios(`https://rickandmortyapi.com/api/character/${id}`).then(({ data }) => {
-         if (data.name) {
-            setCharacter(data);
-         } else {
-            window.alert('No hay personajes con ese ID');
-         }
-      });
-      return setCharacter({});
+      dispatch(getCharacterDetail(id))
    }, [id]);
 
    const characterDetail = () => {

@@ -1,7 +1,7 @@
 import React from 'react';
 import {useState} from 'react';
-import { Validation } from "../Validation.js";
-import styles from "./Validation.module.css";
+import { Validation } from "../Validation/Validation.js";
+//import styles from "../Validation/Validation.modules.css";
 
 
 export const Form = ({login}) => {
@@ -37,14 +37,14 @@ export const Form = ({login}) => {
             
             <label htmlFor='email'>Email:</label>
             <input type='text' name='email' value={userData.email} onChange={handleChange} />
-            <span className={styles.error}>{errors.email}</span>
+            <span >{errors.email}</span>
            
         </div>
         <div>
         
             <label htmlFor='password'>Password:</label>
             <input type='password' name='password' value={userData.password} onChange={handleChange}/>
-            <span className={styles.error}>{errors.password}</span>
+            <span >{errors.password}</span>
            
         </div>
         <button type='submit'>Submit</button>

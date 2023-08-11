@@ -1,5 +1,5 @@
 import React from 'react'
-import { AboutText } from './AboutText'
+import { AboutText } from './AboutText';
 
 export const About = () => {
   return (
