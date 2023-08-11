@@ -1,14 +1,21 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import "./App.css";
-import Cards from "./components/Cards.jsx";
-import Nav from "./components/Nav.jsx";
-import {Routes, Route} from 'react-router-dom';
-import { About } from "./Views/About";
+import Cards from "./components/Cards/Cards.jsx";
+import Nav from "./components/Nav/Nav.jsx";
+import {Routes, Route, useLocation, useNavigate} from 'react-router-dom';
+import { About } from "./components/About/About";
 import { Detail } from "./Views/Detail";
+import { Form } from "./components/Form/Form.jsx";
+import Favorites  from "./components/Favorites/Favorites";
 
 function App() {
   const [characters, setCharacters] = useState([]);
+  const location = useLocation();
+  const [access, setAccess] = useState(false);
+  const email = "mvcorreas@gmail.com";
+  const password = "mv1220";
+  const navigate = useNavigate();
 
   // Función para obtener todos los personajes
   const onSearch = (id) => {
@@ -75,13 +82,32 @@ function App() {
     setCharacters(charactersFiltered);
   };
 
+  // Función para validar acceso Login
+
+  const login = (userData) => {
+    const inputEmail = userData.email.trim();
+    const inputPassword = userData.password.trim();
+    if (inputEmail === email && inputPassword === password) {
+    setAccess(true);
+    alert("Login Exitoso");
+    navigate('/home');
+    } else if (inputEmail !== email || inputPassword !== password) {
+      alert("Los datos ingresados son inválidos");
+    }};
+
+  useEffect(() => {
+    !access && navigate('/');
+ }, [access]);
+
   return (
     <div className="App">
-      <Nav onSearch={onSearch} onRandom={randomCharacter} />
+      {location.pathname !== "/" && <Nav onSearch={onSearch} onRandom={randomCharacter} />}
      <Routes>
+      <Route path='/' element={<Form login={login}/>} />
       <Route path='/home' element={<Cards characters={characters} onClose={onClose}/>}/>
       <Route path='/about' element={<About/>} />
       <Route path='/detail/:id' element={<Detail/>} />
+      <Route path='/favorites' element={<Favorites/>} />
      </Routes>
     </div>
   );
