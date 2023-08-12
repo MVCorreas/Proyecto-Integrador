@@ -4,6 +4,7 @@ import React from 'react'
 export const ADD_FAV = 'ADD_FAV';
 export const REMOVE_FAV = 'REMOVE_FAV';
 export const GET_CHARACTER_DETAIL = "GET_CHARACTER_DETAIL";
+export const CLEAN_DETAIL = "CLEAN_DETAIL";
 
 //creamos las actions
 export const addFav = (character) => {
@@ -26,6 +27,12 @@ export const getCharacterDetail = (id)=> { //Hacemos peticion asíncrona, retorn
         .then((response) => response.json())
         .then(data=>dispatch({type:GET_CHARACTER_DETAIL, payload:data}))
     }
-}
+};
+
+export const cleanDetail = () => {
+    return {
+        type: CLEAN_DETAIL
+    }
+};
  
 

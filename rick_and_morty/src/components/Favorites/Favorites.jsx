@@ -8,7 +8,7 @@ const Favorites = ({ myFavorites }) => {
         <h1>My Favorites</h1>
         <div>
           {myFavorites.map((character) => (
-            <Card key={character.id} id={character.id} name={character.name} />
+            <Card key={character.id} id={character.id} character={character} />
           ))}
         </div>
       </div>

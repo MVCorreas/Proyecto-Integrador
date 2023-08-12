@@ -9,16 +9,22 @@ const Card = ({ character, onClose, addFav, removeFav, myFavorites }) => {
   const { id, name, status, species, gender, origin, image } = character;
   const [isFav, setIsFav] = useState(false);
 
-  useEffect(() => {
-    for (let i = 0; i < myFavorites.length; i++) {
-      const fav = myFavorites[i];
+//   useEffect(() => {
+//     myFavorites.forEach((fav) => {
+//        if (fav.id === id) {
+//           setIsFav(true);
+//        }
+//     });
+//  }, [myFavorites]);
 
-      if (fav.id === id) {
-        setIsFav(true);
-        break;
-      }
+useEffect(() => {
+  for (let i = 0; i < myFavorites.length; i++) {
+    if (myFavorites[i].id === id) {
+      setIsFav(true);
+      break; 
     }
-  }, [myFavorites, id]);
+  }
+}, [myFavorites, id]);
 
   const handleFavorite = () => {
     if (isFav) {
@@ -38,7 +44,7 @@ const Card = ({ character, onClose, addFav, removeFav, myFavorites }) => {
         <h3 className="card-name">{name}</h3>
       </Link>
       <button onClick={handleFavorite}>
-        {isFav ? '❤️' : '🤍'}
+        {isFav ? '❤️' : '🤍'} 
       </button>
       {/* <p>{status}</p>
       <p>{species}</p>

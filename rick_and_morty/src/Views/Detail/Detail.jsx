@@ -2,10 +2,12 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getCharacterDetail } from '../../redux/actions';
+import { getCharacterDetail, cleanDetail } from '../../redux/actions';
+
+
 
 export const Detail = () => {
-   const {id} = useParams();
+   const {id} = useParams(); //nos da el id del character
    //const [character, setCharacter] = useState({});
    const character = useSelector(state => state.characterDetail) //ahora el estado no es local, sino global. Empleo el useEffect para hacer un fecth a una action que hace peticion a la API   const dispatch = useDispatch()
    const dispatch = useDispatch();
@@ -23,6 +25,10 @@ export const Detail = () => {
 
    useEffect(() => {
       dispatch(getCharacterDetail(id))
+
+      return () => {
+        dispatch(cleanDetail())
+      }
    }, [id]);
 
    const characterDetail = () => {
