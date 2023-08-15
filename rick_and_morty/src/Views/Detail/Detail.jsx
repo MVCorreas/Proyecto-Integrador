@@ -35,6 +35,7 @@ export const Detail = () => {
       return (
          <div>
            <h2>{character.name}</h2>
+           <p>ID: {character.id}</p>
            <p>Status: {character.status}</p>
            <p>Species: {character.species}</p>
            <p>Gender: {character.gender}</p>
