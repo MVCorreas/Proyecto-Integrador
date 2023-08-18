@@ -3,6 +3,7 @@ import { connect, useDispatch } from "react-redux";
 import React from "react";
 import { filterCards, orderCards } from "../../redux/actions";
 import { useState } from "react";
+//import '../Favorites/StyledFav.css';
 
 const Favorites = ({ myFavorites }) => {
 
@@ -32,7 +33,8 @@ const Favorites = ({ myFavorites }) => {
   };
 
     return (
-      <div className="favorites-page">
+      
+      <div>
         <h1>My Favorites</h1>
         <div>
           <select onChange={handleOrder}name="order">

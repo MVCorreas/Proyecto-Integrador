@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { addFav, removeFav } from '../../redux/actions';
+import { CardContainer, Button, ButtonCont, Image, Label, Title } from '../Card/StyledCard';
 
 //                                  aqui me traigo las propiedades del mapDispatchToProps como props al componente
 
@@ -37,22 +38,23 @@ useEffect(() => {
   };
 
   return (
-    <div id={id}>
-      <hr />
-      <button onClick={() => onClose(id)}>X</button>
-      <Link to={`/detail/${id}`}>
-        <h3 className="card-name">{name}</h3>
-      </Link>
-      <button onClick={handleFavorite}>
-        {isFav ? '❤️' : '🤍'} 
-      </button>
-      {/* <p>{status}</p>
-      <p>{species}</p>
-      <p>{gender}</p>
-      <p>{origin.name}</p> */}
-      <img src={image} alt={name} />
-      <hr />
-    </div>
+    <CardContainer>
+    <ButtonCont> 
+       {
+          isFav ? ( <Button onClick={handleFavorite}> ⭐️ </Button>) 
+          : ( <Button onClick={handleFavorite}> ☆ </Button>) 
+       }
+
+    <Button close onClick={() => onClose(id)}>❌</Button>
+    </ButtonCont>
+   <Link to={`/detail/${id}`}> <Title> {name}</Title> </Link>  
+    <Image src={image} alt = {`No se encuentra la imagen de ${name}`}/>
+     <ButtonCont> 
+    <Label>| {status} |</Label>
+    <Label>| {species} |</Label>
+    </ButtonCont>
+  
+ </CardContainer>
   );
 };
 

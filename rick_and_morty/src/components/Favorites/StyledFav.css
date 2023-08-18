@@ -1,4 +1,9 @@
 
+@import url('../../Assets/clouds.png');
+@import url('../../Assets/stars.png');
+@import url('../../Assets/twinkling.png');
+
+.favorites-container {
 * {
     margin: 0;
     padding: 0;
@@ -46,19 +51,20 @@
 }
 
 .favorites-page .stars {
-  background:#000 url(stars.png) repeat top center;
+  background:#000 url('../../Assets/stars.png') repeat top center;
   z-index:0;
 }
 
 .favorites-page .twinkling{
-  background:transparent url(twinkling.png) repeat top center;
+  background:transparent url('../../Assets/twinkling.png') repeat top center;
   z-index:1;
   animation:move-twink-back 200s linear infinite;
 }
 
 .favorites-page .clouds{
-    background:transparent url(clouds.png) repeat top center;
+    background:transparent url('../../Assets/clouds.png') repeat top center;
     z-index:2;
     opacity: .4;
     animation:move-clouds-back 200s linear infinite;
+}
 }

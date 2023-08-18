@@ -1,13 +1,11 @@
 .App {
-   text-align: center;
+  
   background-image: url('../src/Assets/R&MMain.webp');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   height: 100vh;
   display: flex;
-  line-height: 50px;
-
 }
 
 

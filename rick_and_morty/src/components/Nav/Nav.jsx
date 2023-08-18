@@ -7,7 +7,6 @@ export default function Nav({ onSearch, onRandom }) {
   return (
     
     <StyledContainer>
-      <div>
     <Link to='/about'>
       <NavButton><button>About</button></NavButton>
     </Link>
@@ -21,7 +20,6 @@ export default function Nav({ onSearch, onRandom }) {
       <SearchBar onSearch={onSearch} />
       <NavButton><button onClick={onRandom}>Random</button></NavButton>
     </nav>
-    </div>
     </StyledContainer>
   );
 }
