@@ -10,7 +10,7 @@ const initialState = {
 export const rootReducer = (state = initialState, action) => {
     switch (action.type) {
       case ADD_FAV:
-        return {...state, myFavorites: [...state.allCharacters, action.payload]};
+        return {...state, allCharacters: [...state.allCharacters, action.payload], myFavorites: [...state.myFavorites, action.payload]};
       case REMOVE_FAV:
         return {...state, myFavorites: state.myFavorites.filter((character) => character.id !== +action.payload)} //o parseInt(action.payload) o Number(action.payload)
       case GET_CHARACTER_DETAIL:
@@ -18,9 +18,17 @@ export const rootReducer = (state = initialState, action) => {
       case CLEAN_DETAIL:
         return {...state, characterDetail: {}};
       case FILTER:
-        let {allCharacters} = state;
-        const filteredCharacters = state.allCharacters.filter((character) => character.gender === action.payload);
-        return {...state, myFavorites: filteredCharacters};
+        let { allCharacters } = state;
+      const filterValue = action.payload;
+
+      if (filterValue === 'All Favorites') {
+        return { ...state, myFavorites: allCharacters };
+      } else {
+        const filteredCharacters = state.allCharacters.filter(
+          (character) => character.gender === filterValue
+        );
+        return { ...state, myFavorites: filteredCharacters };
+      }
       case ORDER:
         const sortedCharacters = state.myFavorites.slice().sort((a, b) => { //slice guarda los cambios del sort en un arreglo, sino solamente se cambiar y organizan pero no se deuelven los cambios 
           if (action.payload === 'A') {

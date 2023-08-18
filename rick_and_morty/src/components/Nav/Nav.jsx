@@ -1,23 +1,27 @@
 import SearchBar from "../SearchBar/SearchBar";
 import {Link} from 'react-router-dom'
+import { StyledContainer, NavButton } from "./StyledNav";
 
 export default function Nav({ onSearch, onRandom }) {
 
   return (
-    <>
+    
+    <StyledContainer>
+      <div>
     <Link to='/about'>
-      <button>About</button>
+      <NavButton><button>About</button></NavButton>
     </Link>
     <Link to='/home'>
-    <button>Home</button>
+    <NavButton><button>Home</button></NavButton>
     </Link>
     <Link to='/favorites'>
-    <button>Favorites</button>
+    <NavButton><button>Favorites</button></NavButton>
     </Link>
     <nav>
       <SearchBar onSearch={onSearch} />
-      <button onClick={onRandom}>Random</button>
+      <NavButton><button onClick={onRandom}>Random</button></NavButton>
     </nav>
-    </>
+    </div>
+    </StyledContainer>
   );
 }

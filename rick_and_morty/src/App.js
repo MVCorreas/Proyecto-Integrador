@@ -100,7 +100,7 @@ function App() {
  }, [access]);
 
   return (
-    <div className="App">
+    <div className={(location.pathname === "/" || location.pathname === "/home") ? "App" : ""}>
       {location.pathname !== "/" && <Nav onSearch={onSearch} onRandom={randomCharacter} />}
      <Routes>
       <Route path='/' element={<Form login={login}/>} />
