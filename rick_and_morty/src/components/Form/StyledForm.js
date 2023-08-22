@@ -8,6 +8,7 @@ export const FormContainer = styled.div `
   border: 1px solid #ccc; 
   padding: 20px;
   height: 100%;
+  width: 20%;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   font-size: xx-large;
 

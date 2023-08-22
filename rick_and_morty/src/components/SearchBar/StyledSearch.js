@@ -1,31 +1,15 @@
 import styled from 'styled-components';
 
-export const StyledContainer = styled.div `
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-    background-color: rgba(255, 255, 255, 0.6); 
-    width: 100%;
-    height:15%;
-    z-index: 20;
-    
-    
-`;
-
 
 export const StyledSearch = styled.nav `
   background-color: rgba(255, 255, 255, 0.6); 
   display: inline-block;
   align-items: center; 
   border: 1px solid #ccc; 
-  padding: 20px;
+  padding: 10px;
   height: 50%;
-
-  margin: 200px;
+  margin: 100px;
   
-    
-    
 `;
 
 export const NavButton = styled.button`
@@ -39,10 +23,9 @@ export const NavButton = styled.button`
   position: relative;
   cursor: pointer;
   padding: 0.5rem;
-  margin:  6rem;
+  margin: 1rem; /* Adjust the margin as needed */
   &:hover {
     filter: brightness(1.5);
     transform: scale(1.5);
-  
   }
   `;

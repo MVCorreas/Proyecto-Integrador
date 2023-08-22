@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { addFav, removeFav } from '../../redux/actions';
-import { CardContainer, Button, ButtonCont, Image, Label, Title } from '../Card/StyledCard';
+import { CardContainer, Button, ButtonCont, Image, Label, Title, CardCont } from '../Card/StyledCard';
 
 //                                  aqui me traigo las propiedades del mapDispatchToProps como props al componente
 
@@ -38,6 +38,8 @@ useEffect(() => {
   };
 
   return (
+    <div>
+      <CardCont>
     <CardContainer>
     <ButtonCont> 
        {
@@ -49,12 +51,14 @@ useEffect(() => {
     </ButtonCont>
    <Link to={`/detail/${id}`}> <Title> {name}</Title> </Link>  
     <Image src={image} alt = {`No se encuentra la imagen de ${name}`}/>
-     <ButtonCont> 
+     
     <Label>| {status} |</Label>
     <Label>| {species} |</Label>
-    </ButtonCont>
+   
   
  </CardContainer>
+ </CardCont>
+  </div>
   );
 };
 

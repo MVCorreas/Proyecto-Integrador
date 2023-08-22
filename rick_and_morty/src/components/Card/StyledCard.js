@@ -1,19 +1,23 @@
 
 import styled from 'styled-components';
 
+export const CardCont = styled.body  `
+  display: inline-block;
+
+`
 export const Button = styled.button`
   display: inline-block;
-  background-color: ${props => (props.close ? 'transparent' : 'black')};
+  background-color: #FA8072;
   border-radius: 5px;
-  width: fit-content;
-  height: fit-content;
+  width: 50px;
+  height: 50px;
   filter: brightness(0.8);
   cursor: pointer;
   padding: 0;
 
   &:hover {
-    filter: brightness(1.5);
-    transform: scale(1.2);
+    filter: brightness(2.5);
+    transform: scale(1.5);
   }
 `;
 
@@ -26,7 +30,8 @@ export const ButtonCont = styled.div`
 
 export const CardContainer = styled.div`
   display: flex;
-  justify-content: center;
+  flex-direction: row;
+  justify-content: center; 
   flex-direction: column;
   align-items: center;
   background: transparent;
@@ -34,7 +39,7 @@ export const CardContainer = styled.div`
   height: fit-content;
   padding: 0.2rem;
   border-radius: 10px;
-  border: 2px solid green;
+  border: 10px solid orange;
   backdrop-filter: blur(5px);
   margin: 1rem;
   box-shadow: 10px 10px 32px 0px rgba(0, 0, 0, 0.75);
@@ -43,16 +48,16 @@ export const CardContainer = styled.div`
 `;
 
 export const Title = styled.h2`
-  font-family: Nunito;
+  font-family: 'Barriecito', cursive;
+  font-size: xx-large;
   font-weight: 700;
-  color: white;
-  margin-bottom: 0.5rem;
+  color: black;
 `;
 
 export const Label = styled.h4`
-  font-family: Nunito;
+  font-family: 'Barriecito', cursive;
   font-weight: 400;
-  color: white;
+  color: black;
   margin: 0px;
 `;
 
@@ -62,3 +67,4 @@ export const Image = styled.img`
   margin-top: 0.5rem;
   border-radius: 10px;
 `;
+

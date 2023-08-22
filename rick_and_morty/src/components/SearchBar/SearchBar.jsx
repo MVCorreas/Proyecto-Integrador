@@ -1,7 +1,9 @@
 //import React from "react";
 import { useState } from "react";
+import {StyledSearch, NavButton} from "./StyledSearch"
+import {randomCharacter} from '../../App';
 
-export default function SearchBar({onSearch}) {
+export default function SearchBar({onSearch, onRandom}) {
 
   const [id, setId] = useState("");
 
@@ -11,8 +13,14 @@ export default function SearchBar({onSearch}) {
    
    return (
       <div>
+        <StyledSearch>
+          <nav>
         <input type='search' placeholder="Add an ID" onChange={handleChange}/>
-        <button onClick={() => {onSearch(id)}}>Find Character</button>
+        <NavButton onClick={() => {onSearch(id)}}>Find Character</NavButton>
+        <NavButton><button onClick={onRandom}>Random</button></NavButton>
+        </nav>
+        </StyledSearch>
       </div>
+     
     );
   };

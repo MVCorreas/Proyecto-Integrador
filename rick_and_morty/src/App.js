@@ -8,6 +8,8 @@ import { About } from "./Views/About/About";
 import { Detail } from "./Views/Detail/Detail";
 import {Form} from "./components/Form/Form.jsx";
 import Favorites  from "./components/Favorites/Favorites";
+import SearchBar from "../src/components/SearchBar/SearchBar";
+import '../src/Assets/Fonts.css';
 
 function App() {
   const [characters, setCharacters] = useState([]);
@@ -99,9 +101,11 @@ function App() {
     !access && navigate('/');
  }, [access]);
 
+
   return (
     <div className={(location.pathname === "/" || location.pathname === "/home") ? "App" : ""}>
-      {location.pathname !== "/" && <Nav onSearch={onSearch} onRandom={randomCharacter} />}
+      {location.pathname !== "/" &&  <Nav />}
+      {location.pathname !== "/" && location.pathname !== "/about" && <SearchBar onSearch={onSearch} onRandom={randomCharacter} />}
      <Routes>
       <Route path='/' element={<Form login={login}/>} />
       <Route path='/home' element={<Cards characters={characters} onClose={onClose}/>}/>
