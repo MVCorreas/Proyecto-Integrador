@@ -3,7 +3,7 @@ import { connect, useDispatch } from "react-redux";
 import React from "react";
 import { filterCards, orderCards } from "../../redux/actions";
 import { useState } from "react";
-//import '../Favorites/StyledFav.css';
+import '../Favorites/StyledFav.css';
 
 const Favorites = ({ myFavorites }) => {
 

@@ -13,21 +13,6 @@ export const StyledContainer = styled.div `
     
 `;
 
-
-export const StyledSearch = styled.nav `
-  background-color: rgba(255, 255, 255, 0.6); 
-  display: inline-block;
-  align-items: center; 
-  border: 1px solid #ccc; 
-  padding: 20px;
-  height: 50%;
-
-  margin: 200px;
-  
-    
-    
-`;
-
 export const NavButton = styled.button`
   display: inline-block;
   background-color: transparent;

@@ -9,7 +9,7 @@ import { Detail } from "./Views/Detail/Detail";
 import {Form} from "./components/Form/Form.jsx";
 import Favorites  from "./components/Favorites/Favorites";
 import SearchBar from "../src/components/SearchBar/SearchBar";
-import '../src/Assets/Fonts.css';
+
 
 function App() {
   const [characters, setCharacters] = useState([]);
