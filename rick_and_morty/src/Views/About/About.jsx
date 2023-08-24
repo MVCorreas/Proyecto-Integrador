@@ -1,15 +1,14 @@
-import React from 'react'
+import React from 'react';
 import { AboutText } from './AboutText';
-import { AboutBackground } from './StyledAbout';
-
+import styles from './StyledAbout.module.css'; 
 
 export const About = () => {
   return (
     <>
-    <AboutBackground>
+      <div className={styles.AboutBackground}> 
         <h1>About Me</h1>
         <AboutText />
-    </AboutBackground>
+      </div>
     </>
-  )
-}
+  );
+};

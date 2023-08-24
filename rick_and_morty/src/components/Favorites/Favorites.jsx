@@ -37,11 +37,11 @@ const Favorites = ({ myFavorites }) => {
       <div className={styles.container}>
         <h1 className={styles.neonText}>My Favorites</h1>
         <div className={styles.overlay}>
-          <select onChange={handleOrder}name="order">
+          <select className={styles.StyledSelect} onChange={handleOrder}name="order">
             <option value="A">Ascendente</option>
             <option value="D">Descendente</option>
           </select>
-          <select onChange={handleFilter} name="gender">
+          <select className={styles.StyledSelect} onChange={handleFilter} name="gender">
             <option value="Male">Male</option>
             <option value="Female">Female</option>
             <option value="Genderless">Genderless</option>

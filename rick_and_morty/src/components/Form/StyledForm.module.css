@@ -13,7 +13,9 @@
 }
 
 .Button {
-  display: inline-block;
+  display: flex; 
+  justify-content: center; 
+  align-items: center;
   background-color: transparent;
   color: orange;
   font-weight: 700;
@@ -23,7 +25,7 @@
   height: fit-content;
   cursor: pointer;
   padding: 0.5rem;
-  margin: 6rem;
+  margin: 6rem auto;
 }
 
 .Button:hover {

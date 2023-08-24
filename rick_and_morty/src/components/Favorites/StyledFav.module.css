@@ -7,6 +7,11 @@
 	overflow: hidden;
 	font-family: 'Monoton', monospace;
 	font-size: 2em;
+	height: 100vh; 
+	display: flex;
+  flex-direction: column;
+  align-items: center; /* Alineación horizontal */
+  text-align: center; 
   }
   
   .neonText {
@@ -186,3 +191,28 @@
 		height: 540px;
 	}
 }
+
+.StyledSelect {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
+	background-color: rgba(255, 255, 255, 0.6);
+	width: 100%;
+	height: 15%;
+	z-index: 20;
+  }
+  
+  .NavButton {
+	display: inline-block;
+	background-color: transparent;
+	font-weight: 700;
+	border: 2px blueviolet solid;
+	border-radius: 5px;
+	width: fit-content;
+	height: fit-content;
+	position: relative;
+	cursor: pointer;
+	padding: 0.5rem;
+	margin: 6rem;
+  }

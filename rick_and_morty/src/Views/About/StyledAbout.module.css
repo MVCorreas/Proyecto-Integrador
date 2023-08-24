@@ -1,0 +1,40 @@
+
+
+.AboutBackground {
+  background-image: url('../../Assets/R&MAbout.webp');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  height: 100vh;
+}
+
+.AboutTitle {
+  font-family: 'Barriecito', cursive;
+  font-size: xx-large;
+  color: rgb(97, 3, 105);
+  justify-content: center;
+  margin-left: 40%;
+  border: 2px blueviolet solid;
+    border-radius: 5px;
+    width: fit-content;
+    height: fit-content;
+    padding: 0.5rem;
+    margin: 6rem auto;
+    background-color: rgba(255, 255, 255, 0.6);
+}
+
+.AboutP {
+  font-family: 'Barriecito', cursive;
+  font-size: x-large;
+  color: white;
+  justify-content: center;
+  margin: 50px;
+  background-color: rgba(255, 255, 255, 0.351);
+  border: 2px blueviolet solid;
+  border-radius: 5px;
+  width: fit-content;
+  height: fit-content;
+  padding: 0.5rem;
+  margin: 6rem auto;
+}

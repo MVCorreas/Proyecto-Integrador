@@ -103,7 +103,7 @@ function App() {
 
 
   return (
-    <div className={(location.pathname === "/" || location.pathname === "/home") ? "App" : ""}>
+    <div className={(location.pathname === "/" || location.pathname === "/home" || location.pathname.startsWith("/detail")) ? "App" : "AboutBackground"}>
       {location.pathname !== "/" &&  <Nav />}
       {location.pathname !== "/" && location.pathname !== "/about" && <SearchBar onSearch={onSearch} onRandom={randomCharacter} />}
      <Routes>
