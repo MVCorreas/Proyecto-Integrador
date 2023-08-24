@@ -1,18 +1,16 @@
-import styled from 'styled-components';
 
 
-export const StyledSearch = styled.nav `
-  background-color: rgba(255, 255, 255, 0.6); 
+.StyledSearch {
+  background-color: rgba(255, 255, 255, 0.6);
   display: inline-block;
-  align-items: center; 
-  border: 1px solid #ccc; 
+  align-items: center;
+  border: 1px solid #ccc;
   padding: 10px;
   height: 50%;
   margin: 100px;
-  
-`;
+}
 
-export const NavButton = styled.button`
+.NavButton {
   display: inline-block;
   background-color: transparent;
   font-weight: 700;
@@ -24,8 +22,9 @@ export const NavButton = styled.button`
   cursor: pointer;
   padding: 0.5rem;
   margin: 1rem; /* Adjust the margin as needed */
-  &:hover {
-    filter: brightness(1.5);
-    transform: scale(1.5);
-  }
-  `;
+}
+
+.NavButton:hover {
+  filter: brightness(1.5);
+  transform: scale(1.5);
+}

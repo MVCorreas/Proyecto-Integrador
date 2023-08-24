@@ -1,7 +1,7 @@
 import React from 'react';
 import {useState} from 'react';
 import { Validation } from "../Validation/Validation.js";
-import {FormContainer, Button, StyledErrors, StyledTitle} from './StyledForm.js';
+import styles from '../Form/StyledForm.module.css';
 
 
 
@@ -32,28 +32,37 @@ export const Form = ({login}) => {
         login(userData); 
     }
 
-  return (
-    <FormContainer>
-    <form onSubmit={handleSubmit}>
-        <div>
-            <StyledTitle>Sing in to peep</StyledTitle>
-            <label htmlFor='email'>Email:</label>
-            <input type='text' name='email' value={userData.email} onChange={handleChange} />
+    return (
+        <div className={styles.FormContainer}> {/* Use styles.FormContainer */}
+          <form onSubmit={handleSubmit}>
             <div>
-            <StyledErrors><span >{errors.email}</span></StyledErrors>
+              <h1 className={styles.StyledTitle}>Sign in to peep</h1> {/* Use styles.StyledTitle */}
+              <label htmlFor='email'>Email:</label>
+              <input
+                type='text'
+                name='email'
+                value={userData.email}
+                onChange={handleChange}
+              />
+              <div>
+                <span className={styles.StyledErrors}>{errors.email}</span> {/* Use styles.StyledErrors */}
+              </div>
+    
+              <label htmlFor='password'>Password:</label>
+              <input
+                type='password'
+                name='password'
+                value={userData.password}
+                onChange={handleChange}
+              />
+              <div>
+                <span className={styles.StyledErrors}>{errors.password}</span> {/* Use styles.StyledErrors */}
+              </div>
             </div>
-        
-            <label htmlFor='password'>Password:</label>
-            <input type='password' name='password' value={userData.password} onChange={handleChange}/>
-            <div>
-            <StyledErrors><span >{errors.password}</span></StyledErrors>
+            <div className={styles.Button}> {/* Use styles.Button */}
+              <button type='submit'>Submit</button>
             </div>
-           
+          </form>
         </div>
-        <Button>
-        <button type='submit'>Submit</button>
-        </Button>
-    </form>
-    </FormContainer>
-)
+      );
 }

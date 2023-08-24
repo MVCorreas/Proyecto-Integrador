@@ -1,6 +1,6 @@
 //import React from "react";
 import { useState } from "react";
-import {StyledSearch, NavButton} from "./StyledSearch"
+import styles from "./StyledSearch.module.css";
 import {randomCharacter} from '../../App';
 
 export default function SearchBar({onSearch, onRandom}) {
@@ -12,15 +12,22 @@ export default function SearchBar({onSearch, onRandom}) {
   };
    
    return (
-      <div>
-        <StyledSearch>
-          <nav>
-        <input type='search' placeholder="Add an ID" onChange={handleChange}/>
-        <NavButton onClick={() => {onSearch(id)}}>Find Character</NavButton>
-        <NavButton><button onClick={onRandom}>Random</button></NavButton>
-        </nav>
-        </StyledSearch>
-      </div>
-     
+    <div>
+    <div className={styles.StyledSearch}> {/* Usa styles.StyledSearch */}
+      <nav>
+        <input
+          type='search'
+          placeholder='Add an ID'
+          onChange={handleChange}
+        />
+        <div className={styles.NavButton}> {/* Usa styles.NavButton */}
+          <button onClick={() => onSearch(id)}>Find Character</button>
+        </div>
+        <div className={styles.NavButton}> {/* Usa styles.NavButton */}
+          <button onClick={onRandom}>Random</button>
+        </div>
+      </nav>
+    </div>
+  </div>
     );
   };

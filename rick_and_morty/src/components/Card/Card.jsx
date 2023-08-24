@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { addFav, removeFav } from '../../redux/actions';
-import { CardContainer, Button, ButtonCont, Image, Label, Title, CardCont } from '../Card/StyledCard';
+import styles from '../Card/StyledCard.module.css';
 
 //                                  aqui me traigo las propiedades del mapDispatchToProps como props al componente
 
@@ -38,26 +38,29 @@ useEffect(() => {
   };
 
   return (
-    <div>
-      <CardCont>
-    <CardContainer>
-    <ButtonCont> 
-       {
-          isFav ? ( <Button onClick={handleFavorite}> ⭐️ </Button>) 
-          : ( <Button onClick={handleFavorite}> ☆ </Button>) 
-       }
-
-    <Button close onClick={() => onClose(id)}>❌</Button>
-    </ButtonCont>
-   <Link to={`/detail/${id}`}> <Title> {name}</Title> </Link>  
-    <Image src={image} alt = {`No se encuentra la imagen de ${name}`}/>
-     
-    <Label>| {status} |</Label>
-    <Label>| {species} |</Label>
-   
-  
- </CardContainer>
- </CardCont>
+    <div className={styles.CardCont}>
+    <div className={styles.CardContainer}>
+      <div className={styles.ButtonCont}>
+        {isFav ? (
+          <button className={styles.Button} onClick={handleFavorite}>
+            ⭐️
+          </button>
+        ) : (
+          <button className={styles.Button} onClick={handleFavorite}>
+            ☆
+          </button>
+        )}
+        <button className={`${styles.Button} ${styles.close}`} onClick={() => onClose(id)}>
+          ❌
+        </button>
+      </div>
+      <Link to={`/detail/${id}`}>
+        <h2 className={styles.Title}>{name}</h2>
+      </Link>
+      <img className={styles.Image} src={image} alt={`No se encuentra la imagen de ${name}`} />
+      <h4 className={styles.Label}>| {status} |</h4>
+      <h4 className={styles.Label}>| {species} |</h4>
+    </div>
   </div>
   );
 };

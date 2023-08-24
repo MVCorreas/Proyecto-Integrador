@@ -1,13 +1,11 @@
 .App {
-  
   background-image: url('../src/Assets/R&MMain.webp');
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  background-repeat: no-repeat;
   height: 100vh;
-};
+}
 
 .AboutBackground {
   background-image: url('../src/Assets/R&MAbout.webp');
@@ -15,8 +13,5 @@
   background-position: center center;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  background-repeat: no-repeat;
   height: 100vh;
-};
-
-
+}

@@ -3,7 +3,7 @@ import { connect, useDispatch } from "react-redux";
 import React from "react";
 import { filterCards, orderCards } from "../../redux/actions";
 import { useState } from "react";
-import '../Favorites/StyledFav.css';
+import styles from '../Favorites/StyledFav.module.css';
 
 const Favorites = ({ myFavorites }) => {
 
@@ -34,9 +34,9 @@ const Favorites = ({ myFavorites }) => {
 
     return (
       
-      <div>
-        <h1>My Favorites</h1>
-        <div>
+      <div className={styles.container}>
+        <h1 className={styles.neonText}>My Favorites</h1>
+        <div className={styles.overlay}>
           <select onChange={handleOrder}name="order">
             <option value="A">Ascendente</option>
             <option value="D">Descendente</option>
