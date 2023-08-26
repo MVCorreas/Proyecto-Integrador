@@ -1,0 +1,24 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "Server de proyecto Rick&Morty",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon ./src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "MVCorreas"
+  },
+  "author": "Victoria Correas",
+  "license": "ISC",
+  "keywords": [],
+  "dependencies": {
+    "axios": "^1.4.0",
+    "nodemon": "^3.0.1"
+  }
+}
