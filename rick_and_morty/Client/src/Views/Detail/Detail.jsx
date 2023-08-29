@@ -2,36 +2,36 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-//import { getCharacterDetail, cleanDetail } from '../../redux/actions';
+import { getCharacterDetail, cleanDetail } from '../../redux/actions';
 import styles from './StyledDetail.module.css';
-import axios from 'axios';
+//import axios from 'axios';
 
 
 
 export const Detail = () => {
    const {id} = useParams(); //nos da el id del character
-   const [character, setCharacter] = useState({});
-   //const character = useSelector(state => state.characterDetail) //ahora el estado no es local, sino global. Empleo el useEffect para hacer un fecth a una action que hace peticion a la API   const dispatch = useDispatch()
+   //const [character, setCharacter] = useState({});
+   const character = useSelector(state => state.characterDetail) //ahora el estado no es local, sino global. Empleo el useEffect para hacer un fecth a una action que hace peticion a la API   const dispatch = useDispatch()
    const dispatch = useDispatch();
    
-   useEffect(() => {
-      axios(`"http://localhost:3001/rickandmorty/character/${id}"`).then(({ data }) => {
-         if (data.name) {
-            setCharacter(data);
-         } else {
-            window.alert('No hay personajes con ese ID');
-         }
-      });
-      return setCharacter({});
-   }, [id]);
-
   //  useEffect(() => {
-  //     dispatch(getCharacterDetail(id))
-
-  //     return () => {
-  //       dispatch(cleanDetail())
-  //     }
+  //     axios(`"http://localhost:3001/rickandmorty/character/${id}"`).then(({ data }) => {
+  //        if (data.name) {
+  //           setCharacter(data);
+  //        } else {
+  //           window.alert('No hay personajes con ese ID');
+  //        }
+  //     });
+  //     return setCharacter({});
   //  }, [id]);
+
+   useEffect(() => {
+      dispatch(getCharacterDetail(id))
+
+      return () => {
+        dispatch(cleanDetail())
+      }
+   }, [id]);
 
    const characterDetail = () => {
     return (

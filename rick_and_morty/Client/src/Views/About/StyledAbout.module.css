@@ -27,7 +27,7 @@
 .AboutP {
   font-family: 'Barriecito', cursive;
   font-size: x-large;
-  color: white;
+  color: rgb(10, 47, 10);
   justify-content: center;
   margin: 50px;
   background-color: rgba(255, 255, 255, 0.351);

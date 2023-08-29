@@ -44,3 +44,8 @@
   font-weight: bolder;
   color: purple;
 }
+
+.StyledInput {
+  border-radius: 60px;
+  height: 20px;
+}

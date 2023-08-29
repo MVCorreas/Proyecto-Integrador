@@ -5,6 +5,7 @@
   display: inline-block;
   align-items: center;
   border: 1px solid #ccc;
+  border-radius: 20px;
   padding: 10px;
   height: 50%;
   margin: 100px;

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { addFav, removeFav } from '../../redux/actions';
-import styles from './StyledCard.module.css';
+import styles from '../Card/StyledCard.module.css';
 
 //                                  aqui me traigo las propiedades del mapDispatchToProps como props al componente
 

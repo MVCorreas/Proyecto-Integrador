@@ -34,9 +34,10 @@ const Favorites = ({ myFavorites }) => {
 
     return (
       
-      <div className={styles.container}>
+      <body className={styles.FavoriteContainer}>
         <h1 className={styles.neonText}>My Favorites</h1>
         <div className={styles.overlay}>
+          <div className={styles.SelectContainer}>
           <select className={styles.StyledSelect} onChange={handleOrder}name="order">
             <option value="A">Ascendente</option>
             <option value="D">Descendente</option>
@@ -48,11 +49,14 @@ const Favorites = ({ myFavorites }) => {
             <option value="unknown">unknown</option>
             <option value="All Favorites">All Favorites</option>
           </select>
+          </div>
+          <div className={styles.FavCards}>
           {myFavorites.map((character) => (
             <Card key={character.id} id={character.id} character={character} />
           ))}
+          </div>
         </div>
-      </div>
+      </body>
     );
   };
 

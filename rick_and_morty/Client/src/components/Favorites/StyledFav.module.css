@@ -1,21 +1,24 @@
-.container {
+.FavoriteContainer {
 	background: radial-gradient(ellipse at center, rgba(127, 0, 173, 0.6) 0%, rgba(0, 0, 0, 0.8) 60%, rgba(0, 0, 0, 1) 90%),
 	  url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/31787/stars.jpg);
-	background-size: cover;
+	background-size: cover;;
 	z-index: -5;
 	color: white;
 	overflow: hidden;
 	font-family: 'Monoton', monospace;
 	font-size: 2em;
-	height: 100vh; 
+	height: 200vh; 
 	display: flex;
-  flex-direction: column;
-  align-items: center; /* Alineación horizontal */
-  text-align: center; 
+    flex-direction: column;
+    align-items: center; 
+    text-align: center; 
+    position: relative;
+    top: -200px;
   }
   
   .neonText {
 	animation: neon1 1.5s ease-in-out infinite alternate;
+	padding: 10%;
   }
   
   .overlay {
@@ -23,7 +26,7 @@
 	right: 0;
 	left: 0;
 	margin: auto;
-	width: 100%;
+	width: 50%;
 	text-align: center;
   }
 
@@ -36,7 +39,7 @@
 	background: -ms-linear-gradient(top, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 25%, rgba(255,71,255,1) 100%);
 	background: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 25%, rgba(255,71,255,1) 100%);
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#5c47ff', endColorstr='#ff47ff', GradientType=0 );
-	height:400px;
+	height:;
 	width:200vw;
 	opacity:1;
 	position:absolute;
@@ -109,7 +112,7 @@
 	animation: layercorneranim 2.5s ease-in-out infinite alternate;	
 }
 
-.hey {
+/* .hey {
 	width: 100%;
 	background-color: #011;
 	position: absolute;
@@ -117,9 +120,9 @@
 	margin: auto;
 	z-index: -10;
 	transform: perspective(200px);
-}
+} */
 
-.layer-up {
+/* .layer-up {
 	background: rgba(71,255,203,0);
 	background: -moz-linear-gradient(top, rgba(71,255,203,0) 0%, rgba(71,255,203,0) 50%, rgba(71,255,203,1) 100%);
 	background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(71,255,203,0)), color-stop(50%, rgba(71,255,203,0)), color-stop(100%, rgba(71,255,203,1)));
@@ -136,9 +139,9 @@
 	overflow: hidden;
 	z-index: -5;
 	animation: layerupanim 2.5s ease-in-out infinite alternate;	
-}
+} */
 
-.lines {
+/* .lines {
     background-size: 40px 40px;    
     background-image: repeating-linear-gradient(0deg, #60DCD3, #60DCD3 2px, transparent 1px, transparent 40px),repeating-linear-gradient(-90deg, #60DCD3, #60DCD3 2px, transparent 2px, transparent 40px);
     height:400px;
@@ -148,9 +151,9 @@
     top:0;
     left:0;
     z-index:-4;
-}
+} */
 
-.mtn {
+/* .mtn {
 	background-color: purple;
 	height:300px;
 	width:1200px;
@@ -161,7 +164,7 @@
 	margin: auto;
 	z-index: -8;
 	transform: perspective(600px);
-}
+} */
 
 @keyframes neon1 {
   from {
@@ -192,7 +195,24 @@
 	}
 }
 
-.StyledSelect {
+.FavCards{
+    display: flex;
+   flex-direction: column;
+    align-items: center; 
+	margin-top: -5px;
+}
+
+.SelectContainer {
+	display: inline-block;
+	flex-direction: row;
+	align-items: center;
+	width: 30%;
+	height: 30%;
+	padding: 20%;
+	margin-top: 150px;
+}
+
+.StyledContainer {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-around;
@@ -201,18 +221,4 @@
 	width: 100%;
 	height: 15%;
 	z-index: 20;
-  }
-  
-  .NavButton {
-	display: inline-block;
-	background-color: transparent;
-	font-weight: 700;
-	border: 2px blueviolet solid;
-	border-radius: 5px;
-	width: fit-content;
-	height: fit-content;
-	position: relative;
-	cursor: pointer;
-	padding: 0.5rem;
-	margin: 6rem;
   }

@@ -99,13 +99,21 @@ function App() {
 
   useEffect(() => {
     !access && navigate('/');
- }, [access]);
+ }, [access, navigate]);
 
+ let backgroundClass;
+ if (location.pathname === "/" || location.pathname === "/home" || location.pathname.startsWith("/detail")) {
+   backgroundClass = "App";
+ } else if (location.pathname === "/about") {
+   backgroundClass = "AboutBackground";
+ } else if (location.pathname === "/favorites") {
+  backgroundClass = "FavoriteContainer";
+ }
 
   return (
-    <div className={(location.pathname === "/" || location.pathname === "/home" || location.pathname.startsWith("/detail")) ? "App" : "AboutBackground"}>
+    <div className={backgroundClass}>
       {location.pathname !== "/" &&  <Nav />}
-      {location.pathname !== "/" && location.pathname !== "/about" && <SearchBar onSearch={onSearch} onRandom={randomCharacter} />}
+      {location.pathname !== "/" && location.pathname !== "/about" && location.pathname !== "/favorites" && <SearchBar onSearch={onSearch} onRandom={randomCharacter} />}
      <Routes>
       <Route path='/' element={<Form login={login}/>} />
       <Route path='/home' element={<Cards characters={characters} onClose={onClose}/>}/>

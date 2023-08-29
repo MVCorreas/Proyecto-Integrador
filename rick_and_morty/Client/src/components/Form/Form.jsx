@@ -38,7 +38,7 @@ export const Form = ({login}) => {
             <div>
               <h1 className={styles.StyledTitle}>Sign in to peep</h1> {/* Use styles.StyledTitle */}
               <label htmlFor='email'>Email:</label>
-              <input
+              <input className={styles.StyledInput}
                 type='text'
                 name='email'
                 value={userData.email}
@@ -49,7 +49,7 @@ export const Form = ({login}) => {
               </div>
     
               <label htmlFor='password'>Password:</label>
-              <input
+              <input className={styles.StyledInput}
                 type='password'
                 name='password'
                 value={userData.password}
