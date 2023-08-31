@@ -35,21 +35,24 @@ export const Detail = () => {
 
    const characterDetail = () => {
     return (
-      <div className={styles.CardContainer}> 
-        <h2 className={styles.Title}>{character.name}</h2>
-        <p>ID: {character.id}</p>
-        <p className={styles.Label}>Status: {character.status}</p>
-        <p className={styles.Label}>Species: {character.species}</p>
-        <p className={styles.Label}>Gender: {character.gender}</p>
-        <p className={styles.Label}>Origin: {character.origin && character.origin.name}</p>
-        <img className={styles.Image} src={character.image} alt={character.name} />
-      </div>
-    );
-  };
+      <div className={styles.DetailContainer}>
+    <div>
+      <h2 className={styles.Title}>{character.name}</h2>
+      <p>ID: {character.id}</p>
+      <p className={styles.Label}>Status: {character.status}</p>
+      <p className={styles.Label}>Species: {character.species}</p>
+      <p className={styles.Label}>Gender: {character.gender}</p>
+      <p className={styles.Label}>Origin: {character.origin && character.origin.name}</p>
+    </div>
+    <div className={styles.Image}>
+      <img src={character.image} alt={character.name} />
+    </div>
+  </div>
+  )};
 
   return (
     <div>
-      <h1 className={styles.MainTitle}>Detail</h1>
+     
       {character.name ? (
         characterDetail()
       ) : (

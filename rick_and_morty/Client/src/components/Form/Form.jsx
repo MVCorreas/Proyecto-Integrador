@@ -33,10 +33,10 @@ export const Form = ({login}) => {
     }
 
     return (
-        <div className={styles.FormContainer}> {/* Use styles.FormContainer */}
+        <div className={styles.FormContainer}> 
           <form onSubmit={handleSubmit}>
             <div>
-              <h1 className={styles.StyledTitle}>Sign in to peep</h1> {/* Use styles.StyledTitle */}
+              <h1 className={styles.StyledTitle}>Sign in to peep</h1> 
               <label htmlFor='email'>Email:</label>
               <input className={styles.StyledInput}
                 type='text'
@@ -45,7 +45,7 @@ export const Form = ({login}) => {
                 onChange={handleChange}
               />
               <div>
-                <span className={styles.StyledErrors}>{errors.email}</span> {/* Use styles.StyledErrors */}
+                <span className={styles.StyledErrors}>{errors.email}</span> 
               </div>
     
               <label htmlFor='password'>Password:</label>
