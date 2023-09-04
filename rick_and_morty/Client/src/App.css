@@ -4,7 +4,8 @@
   background-position: center center;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  height: 100vh;
+  height: 100vh; 
+  
 }
 
 .AboutBackground {
@@ -15,3 +16,26 @@
   background-attachment: fixed;
   height: 100vh;
 }
+
+/* text-align: center; */
+  /* min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white; */
+
+  .FavoriteContainer {
+
+    background: radial-gradient(ellipse at center, rgba(127, 0, 173, 0.6) 0%, rgba(0, 0, 0, 0.8) 60%, rgba(0, 0, 0, 1) 90%),
+     url('../src/Assets/R&MFavorites.jpeg');
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      height: 100%;
+    font-size: 2em;	
+    margin-top: 30px;
+  
+    }

@@ -32,32 +32,29 @@ const Favorites = ({ myFavorites }) => {
     dispatch(filterCards(e.target.value));
   };
 
-    return (
-      
-      <body className={styles.FavoriteContainer}>
-        <h1 className={styles.neonText}>My Favorites</h1>
-        <div className={styles.overlay}>
-          <div className={styles.SelectContainer}>
-          <select className={styles.StyledSelect} onChange={handleOrder}name="order">
-            <option value="A">Ascendente</option>
-            <option value="D">Descendente</option>
-          </select>
-          <select className={styles.StyledSelect} onChange={handleFilter} name="gender">
-            <option value="Male">Male</option>
-            <option value="Female">Female</option>
-            <option value="Genderless">Genderless</option>
-            <option value="unknown">unknown</option>
-            <option value="All Favorites">All Favorites</option>
-          </select>
-          </div>
-          <div className={styles.FavCards}>
-          {myFavorites.map((character) => (
-            <Card key={character.id} id={character.id} character={character} />
-          ))}
-          </div>
-        </div>
-      </body>
-    );
+  return (
+    <div className={styles.FavoriteContainer}>
+    <h1 className={styles.neonText}>My Favorites</h1>
+    <div className={styles.SelectContainer}>
+      <select onChange={handleOrder} name="order">
+        <option value="A">Ascendente</option>
+        <option value="D">Descendente</option>
+      </select>
+      <select onChange={handleFilter} name="gender">
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+        <option value="Genderless">Genderless</option>
+        <option value="unknown">unknown</option>
+        <option value="All Favorites">All Favorites</option>
+      </select>
+    </div>
+    <div className={styles.FavCards}>
+      {myFavorites.map((character) => (
+        <Card key={character.id} id={character.id} character={character} />
+      ))}
+    </div>
+  </div>
+  );
   };
 
 const mapStateToProps = (state) => {

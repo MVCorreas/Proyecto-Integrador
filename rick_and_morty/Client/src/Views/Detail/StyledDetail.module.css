@@ -10,6 +10,7 @@
   width: 40%;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   font-size: xx-large;
+  margin-left: 25%;
 }
 
 .CardCont {
@@ -17,6 +18,7 @@
     justify-content: center; 
     align-items: center;
     margin: 50%;
+   
 
   }
   
