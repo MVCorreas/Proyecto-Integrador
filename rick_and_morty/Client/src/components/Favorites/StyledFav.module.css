@@ -1,16 +1,3 @@
-/* .FavoriteContainer {
-
-	background: radial-gradient(ellipse at center, rgba(127, 0, 173, 0.6) 0%, rgba(0, 0, 0, 0.8) 60%, rgba(0, 0, 0, 1) 90%),
-	 url('../../Assets/R&MFavorites.jpeg');
-  	background-size: cover;
-  	background-position: center center;
-  	background-repeat: no-repeat;
-  	background-attachment: fixed;
-  	height: 100%;
-	font-size: 2em;	
-	margin-top: 30px;
-
-  } */
  
   .neonText {
 	color: white;
@@ -23,14 +10,6 @@
 	
   }
   
-  /* .overlay {
-	position: absolute;
-	right: 0;
-	left: 0;
-	margin: auto;
-	width: 50%;
-	text-align: center;
-  } */
 
 @keyframes neon1 {
   from {
@@ -70,20 +49,9 @@
   
 .SelectContainer {
 	display: block;
-	width: 30%;
-	height: 30%;
+	width: 40%;
+	height: 100%;
 	padding: 20%;
 	margin-top: 10px;
 	margin-left: 345px;
 }
-
-.StyledContainer {
-	display: flex;
-	flex-direction: row;
-	justify-content: space-around;
-	align-items: center;
-	background-color: rgba(255, 255, 255, 0.6);
-	width: 100%;
-	height: 15%;
-	z-index: 20;
-} 

@@ -102,18 +102,20 @@ function App() {
  }, [access, navigate]);
 
  let backgroundClass;
- if (location.pathname === "/" || location.pathname === "/home" || location.pathname.startsWith("/detail")) {
+ if (location.pathname === "/" || location.pathname === "/home") {
    backgroundClass = "App";
  } else if (location.pathname === "/about") {
    backgroundClass = "AboutBackground";
  } else if (location.pathname === "/favorites") {
   backgroundClass = "FavoriteContainer";
+ } else if (location.pathname.startsWith("/detail")) {
+  backgroundClass = "DetailContainer";
  }
 
   return (
     <div className={backgroundClass}>
       {location.pathname !== "/" &&  <Nav />}
-      {location.pathname !== "/" && location.pathname !== "/about" && location.pathname !== "/favorites"  && location.pathname !== "/detail/:id" && <SearchBar onSearch={onSearch} onRandom={randomCharacter} />}
+      {location.pathname !== "/" && location.pathname !== "/about" && location.pathname !== "/favorites" && !location.pathname.startsWith('/detail') && <SearchBar onSearch={onSearch} onRandom={randomCharacter} />}
      <Routes>
       <Route path='/' element={<Form login={login}/>} />
       <Route path='/home' element={<Cards characters={characters} onClose={onClose}/>}/>
