@@ -3,6 +3,7 @@
 	color: white;
 	font-family: 'Monoton', monospace;
 	animation: neon1 1.5s ease-in-out infinite alternate;
+	font-size: 2em;
 	padding: 10%;
 	margin-left: 25%;
 	margin-top: 5px;
@@ -48,10 +49,9 @@
 }
   
 .SelectContainer {
-	display: block;
+	display: flex;
 	width: 40%;
 	height: 100%;
-	padding: 20%;
-	margin-top: 10px;
-	margin-left: 345px;
+	margin-top: -5%;
+	margin-left: 640px;
 }

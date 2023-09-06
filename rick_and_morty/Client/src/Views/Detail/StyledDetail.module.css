@@ -2,7 +2,7 @@
 .DetailCard {
   display: inline-block;
   flex-direction: column;
-  background-color: rgba(255, 255, 255, 0.6);
+  background-color: rgba(255, 255, 255, 0.445);
   text-align: right;
   align-items: flex-start;
   border: 3px solid #ccc;
@@ -15,20 +15,29 @@
 }
 
 .Title {
-    font-family: 'Barriecito', cursive;
-    font-size: 2em;
+    font-family: 'Monoton', monospace;
+    animation: neon1 1.5s ease-in-out infinite alternate;
+    font-size: xxx-large;
     font-weight: 700;
     text-decoration: none;
-    color: rgb(59, 35, 211);
+    color: white;
     margin-left: 50%;
-    border: 2px rgb(59, 35, 211) solid;
     border-radius: 5px;
     width: fit-content;
     height: fit-content;
     padding: 0.5rem;
     margin: 6rem auto;
-    background-color: white;
+  
 
+}
+
+@keyframes neon1 {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #FF11A7, 0 0 70px #FF11A7, 0 0 80px #FF11A7, 0 0 100px #FF11A7, 0 0 150px #FF1177;
+  }
+  to {
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #FF11A7, 0 0 35px #FF11A7, 0 0 40px #FF11A7, 0 0 50px #FF11A7, 0 0 75px #FF11A7;
+  }
 }
   
   .Label {
@@ -48,5 +57,6 @@
     margin-right: 25%;
     border: 3px solid #ccc;
     border-radius: 20px;
+    object-fit: contain;
   }
   
