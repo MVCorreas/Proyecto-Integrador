@@ -10,9 +10,10 @@
 }
 
 .AboutTitle {
-  font-family: 'Barriecito', cursive;
-  font-size: xx-large;
-  color: rgb(97, 3, 105);
+  font-family: 'Monoton', monospace;
+  animation: neon1 1.5s ease-in-out infinite alternate;
+  font-size: xxx-large;
+  color: white;
   justify-content: center;
   margin-left: 40%;
   border: 2px blueviolet solid;
@@ -20,8 +21,17 @@
     width: fit-content;
     height: fit-content;
     padding: 0.5rem;
-    margin: 6rem auto;
+    margin: 2rem auto;
     background-color: rgba(255, 255, 255, 0.6);
+}
+
+@keyframes neon1 {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #FF11A7, 0 0 70px #FF11A7, 0 0 80px #FF11A7, 0 0 100px #FF11A7, 0 0 150px #FF1177;
+  }
+  to {
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #FF11A7, 0 0 35px #FF11A7, 0 0 40px #FF11A7, 0 0 50px #FF11A7, 0 0 75px #FF11A7;
+  }
 }
 
 .AboutP {
