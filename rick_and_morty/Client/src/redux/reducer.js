@@ -1,3 +1,4 @@
+import axios from 'axios';
 
 import { ADD_FAV, CLEAN_DETAIL, FILTER, GET_CHARACTER_DETAIL, ORDER, REMOVE_FAV } from './actions';
 
@@ -9,12 +10,17 @@ const initialState = {
 
 export const rootReducer = (state = initialState, action) => {
     switch (action.type) {
+      // case ADD_FAV:
+      //   return {...state, allCharacters: [...state.allCharacters, action.payload], myFavorites: [...state.myFavorites, action.payload]};
       case ADD_FAV:
-        return {...state, allCharacters: [...state.allCharacters, action.payload], myFavorites: [...state.myFavorites, action.payload]};
+        return {...state, myFavorites: action.payload, allFavorites: action.payload };
+      
+      // case REMOVE_FAV:
+      //   return {...state, myFavorites: state.myFavorites.filter((character) => character.id !== +action.payload)} //o parseInt(action.payload) o Number(action.payload)
       case REMOVE_FAV:
-        return {...state, myFavorites: state.myFavorites.filter((character) => character.id !== +action.payload)} //o parseInt(action.payload) o Number(action.payload)
+        return { ...state, myFavorites: action.payload };
       case GET_CHARACTER_DETAIL:
-        return {...state,characterDetail: action.payload};
+        return {...state, characterDetail: action.payload};
       case CLEAN_DETAIL:
         return {...state, characterDetail: {}};
       case FILTER:

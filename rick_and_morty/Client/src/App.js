@@ -86,16 +86,27 @@ function App() {
 
   // Función para validar acceso Login
 
-  const login = (userData) => {
-    const inputEmail = userData.email.trim();
-    const inputPassword = userData.password.trim();
-    if (inputEmail === email && inputPassword === password) {
-    setAccess(true);
-    alert("Login Exitoso");
-    navigate('/home');
-    } else if (inputEmail !== email || inputPassword !== password) {
-      alert("Los datos ingresados son inválidos");
-    }};
+  // const login = (userData) => {
+  //   const inputEmail = userData.email.trim();
+  //   const inputPassword = userData.password.trim();
+  //   if (inputEmail === email && inputPassword === password) {
+  //   setAccess(true);
+  //   alert("Login Exitoso");
+  //   navigate('/home');
+  //   } else if (inputEmail !== email || inputPassword !== password) {
+  //     alert("Los datos ingresados son inválidos");
+  //   }};
+
+  function login(userData) {
+    const { email, password } = userData;
+    const URL = 'http://localhost:3001/rickandmorty/login/';
+    axios(URL + `?email=${email}&password=${password}`)
+    .then(({ data }) => {
+       const { access } = data;
+       setAccess(data);
+       access && navigate('/home');
+    });
+  }
 
   useEffect(() => {
     !access && navigate('/');
