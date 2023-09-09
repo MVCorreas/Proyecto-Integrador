@@ -20,34 +20,32 @@ function App() {
   const navigate = useNavigate();
 
   // Función para obtener todos los personajes
-  const onSearch = (id) => {
+  const onSearch = async (id) => { //no es necesario req, res si no trabajamos con peticiones HTTP express
     if (isNaN(id)) {
       alert("Por favor, ingresa un número válido como ID.");
       return;
     }
 
-    axios(`http://localhost:3001/rickandmorty/character/${id}`)
-      .then(({ data }) => {
-        if (data.name) {
-          const characterExists = characters.some(
-            (character) => character.id === data.id
-          );
+    try {
+      const { data } = await axios(`http://localhost:3001/rickandmorty/character/${id}`);
 
-          if (characterExists) {
-            alert("Este personaje ya se encuentra en la lista.");
-          } else {
-            setCharacters((characters) => [...characters, data]);
-          }
-        } else {
-          alert(`¡No hay personajes con el ID proporcionado!`);
-        }
-      })
-      .catch((error) => {
-        alert(
-          `Ocurrió un error al obtener los datos de la API. Por favor, intenta nuevamente más tarde.`
+      if (data.name) {
+        const characterExists = characters.some(
+          (character) => character.id === data.id
         );
-        console.error(error);
-      });
+
+        if (characterExists) {
+          alert("Este personaje ya se encuentra en la lista.");
+        } else {
+          setCharacters((characters) => [...characters, data]);
+        }
+      } else {
+        alert(`¡No hay personajes con el ID proporcionado!`);
+      }
+    } catch (error) {
+      alert(`Ocurrió un error al obtener los datos de la API. Por favor, intenta nuevamente más tarde.`);
+      console.error(error);
+  }
   };
 
   // Función para obtener un personaje aleatorio
@@ -97,15 +95,42 @@ function App() {
   //     alert("Los datos ingresados son inválidos");
   //   }};
 
-  function login(userData) {
-    const { email, password } = userData;
-    const URL = 'http://localhost:3001/rickandmorty/login/';
-    axios(URL + `?email=${email}&password=${password}`)
-    .then(({ data }) => {
-       const { access } = data;
-       setAccess(data);
-       access && navigate('/home');
-    });
+  //FUNCION LOGIN CON PROMESAS
+  // function login(userData) {
+  //   const { email, password } = userData;
+  //   const URL = 'http://localhost:3001/rickandmorty/login/';
+  //   axios(URL + `?email=${email}&password=${password}`)
+  //   .then(({ data }) => {
+  //      const { access } = data;
+  //      setAccess(data);
+  //      alert("Login Exitoso");
+  //      access && navigate('/home');
+  //   });
+  // }
+
+  //FUNCION LOGIN ASYNC AWAIT
+  async function login(userData) {
+    try {
+      const { email, password } = userData;
+      const URL = 'http://localhost:3001/rickandmorty/login/';
+      const response = await axios.get(URL + `?email=${email}&password=${password}`); // tambien puedo usar params: 
+      //const response = await axios.get(URL, {params: { email, password }});
+      
+      const { access } = response.data;
+
+      if (access) {
+        // Login successful
+       setAccess(true);
+        alert("Login Exitoso");
+        navigate('/home');
+      } else {
+        // Login failed
+        alert("Los datos ingresados son inválidos");
+      } 
+    }  catch (error) {
+      alert(`Ocurrió un error al intentar ingresar. Por favor, intenta nuevamente más tarde.`);
+      console.error(error);
+    }
   }
 
   useEffect(() => {

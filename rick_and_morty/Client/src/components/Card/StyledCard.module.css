@@ -12,6 +12,7 @@
   filter: brightness(0.8);
   cursor: pointer;
   padding: 0;
+  font-size: 1.2em;
 }
 
 .Button:hover {

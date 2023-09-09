@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { addFav, removeFav } from '../../redux/actions';
 import styles from '../Card/StyledCard.module.css';
@@ -27,15 +27,10 @@ useEffect(() => {
   }
 }, [myFavorites, id]);
 
-  const handleFavorite = () => {
-    if (isFav) {
-      setIsFav(false);
-      removeFav(id);
-    } else {
-      setIsFav(true);
-      addFav(character);
-    }
-  };
+const handleFavorite = () => {
+  isFav ? removeFav(id) : addFav({ id, name, status, species, gender, origin, image });
+  setIsFav(!isFav);
+};
 
   return (
     <div className={styles.CardCont}>
@@ -50,9 +45,11 @@ useEffect(() => {
             ☆
           </button>
         )}
+         {useLocation().pathname === "/home" && (
         <button className={`${styles.Button} ${styles.close}`} onClick={() => onClose(id)}>
           ❌
         </button>
+         )}
       </div>
       <Link to={`/detail/${id}`}>
         <h2 className={styles.Title}>{name}</h2>
