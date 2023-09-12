@@ -36,13 +36,12 @@ export const addFav = (character) => async (dispatch) => {
       const endpoint = 'http://localhost:3001/rickandmorty/fav';
       const { data } = await axios.post(endpoint, character);
   
-      dispatch({
+      return dispatch({
         type: ADD_FAV,
         payload: data,
       });
     } catch (error) {
       alert('Could not add the character selected');
-      console.error(error);
     }
   };
   
@@ -73,13 +72,12 @@ export const removeFav = (id) => async (dispatch) => {
     try {
         const endpoint = 'http://localhost:3001/rickandmorty/fav/' + id;
         const { data } = await axios.delete(endpoint);
-        dispatch({
+        return dispatch({
             type: REMOVE_FAV,
             payload: data,
       });
     } catch (error) {
         alert('Could not remove the character selected')
-        console.error(error);
       }
  };
  

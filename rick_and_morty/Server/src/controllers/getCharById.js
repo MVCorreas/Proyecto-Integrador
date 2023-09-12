@@ -48,16 +48,17 @@
   const getCharById = async (req, res) => {
     try {
         const {id} = req.params;
-        const {data} = await axios.get(`${URL}/${id}`);
-        if (data) {
-            const {name, gender, species, origin = origin.name, image, status } = data;
-            const character = {name, gender, species, origin, id, image, status };
-            res.status(201).json(character);
-        } else {
-            res.status(404).json({mesagge: "Not Found"});
-        }
+        const {data} = await axios.get(`${URL}/${id}`); //desestructuramos la propiedad data dentro de la respuesta que trae Axios (trae statuscode, y data)
+        const {name, gender, species, origin = origin.name, image, status } = data;
+        const character = {name, gender, species, origin, id, image, status };
+        res.status(201).json(character);
+    
     } catch (error) {
-        res.status(500).json({message: "HOLA FALLE"});
+        if (error.message.includes('404')) {
+            res.status(404).json({mesagge: "Character Not Found"});
+        } else {
+            res.status(500).json({error: error.message})
+        }
     }
 }
 

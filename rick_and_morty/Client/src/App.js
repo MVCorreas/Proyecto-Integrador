@@ -44,7 +44,6 @@ function App() {
       }
     } catch (error) {
       alert(`Ocurrió un error al obtener los datos de la API. Por favor, intenta nuevamente más tarde.`);
-      console.error(error);
   }
   };
 
