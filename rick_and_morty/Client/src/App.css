@@ -1,4 +1,8 @@
 
+.body {
+  margin: 0;
+  padding: 0;
+}
 
 .App {
   background-image: url('../src/Assets/R&MMain.webp');
@@ -7,6 +11,8 @@
   background-repeat: no-repeat;
   background-attachment: fixed;
   height: 100vh; 
+  box-sizing: border-box;
+  overflow-y: scroll;
   
 }
 
@@ -17,6 +23,7 @@
   background-repeat: no-repeat;
   background-attachment: fixed;
   height: 100vh;
+  overflow-y: scroll;
 }
 
 /* text-align: center; */
@@ -38,6 +45,7 @@
     background-attachment: fixed;
     height: 100vh;
     font-size: 2em;	
+    overflow-y: scroll;
 
 }
 
@@ -48,5 +56,6 @@
     background-size: cover;
     background-attachment: fixed;
     height: 100vh;
+    overflow-y: scroll;
    
 }
