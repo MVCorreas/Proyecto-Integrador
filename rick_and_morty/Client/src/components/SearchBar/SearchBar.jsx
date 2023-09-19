@@ -14,18 +14,17 @@ export default function SearchBar({onSearch, onRandom}) {
    return (
     <div>
     <div className={styles.StyledSearch}> 
-      <nav>
+      <nav className={styles.StyledNav}>
         <input
           type='search'
           placeholder='Add an ID'
           onChange={handleChange}
         />
-        <div className={styles.NavButton}> 
-          <button onClick={() => onSearch(id)}>Find Character</button>
-        </div>
-        <div className={styles.NavButton}> 
-          <button onClick={onRandom}>Random</button>
-        </div>
+        
+          <button className={styles.NavButton} onClick={() => onSearch(id)}>Find Character</button>
+       
+          <button className={styles.NavButton} onClick={onRandom}>Random</button>
+        
       </nav>
     </div>
   </div>

@@ -56,11 +56,11 @@ export const Form = ({login}) => {
                 onChange={handleChange}
               />
               <div>
-                <span className={styles.StyledErrors}>{errors.password}</span> {/* Use styles.StyledErrors */}
+                <span className={styles.StyledErrors}>{errors.password}</span> 
               </div>
             </div>
-            <div className={styles.Button}> {/* Use styles.Button */}
-              <button type='submit'>Submit</button>
+            <div > 
+              <button type='submit' className={styles.Button}>Submit</button>
             </div>
           </form>
         </div>

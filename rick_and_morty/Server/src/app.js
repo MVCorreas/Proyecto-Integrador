@@ -24,4 +24,4 @@ server.use(express.json())
 
 server.use('/rickandmorty', router)
 
-module.exports = app;
+module.exports = server;

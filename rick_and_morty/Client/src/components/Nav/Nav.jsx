@@ -8,18 +8,18 @@ export default function Nav({ onSearch, onRandom }) {
    
     <div className={styles.StyledContainer}> 
       <Link to='/about'>
-        <div className={styles.NavButton}> 
-          <button>About</button>
+        <div> 
+          <button className={styles.NavButton}>About</button>
         </div>
       </Link>
       <Link to='/home'>
-        <div className={styles.NavButton}> 
-          <button>Home</button>
+        <div > 
+          <button className={styles.NavButton}>Home</button>
         </div>
       </Link>
       <Link to='/favorites'>
-        <div className={styles.NavButton}> 
-          <button>Favorites</button>
+        <div > 
+          <button className={styles.NavButton}>Favorites</button>
         </div>
       </Link>
     </div>

@@ -11,19 +11,21 @@
 
 .NavButton {
   display: inline-block;
-  background-color: transparent;
-  font-weight: 700;
-  border: 2px blueviolet solid;
-  border-radius: 5px;
+  background-color: #0a2351ac;
+  cursor: pointer;
+  border: none;
+  padding: 16px 20px;
+  margin: 1rem;
   width: fit-content;
   height: fit-content;
+  color: azure;
+  font-family: 'Barriecito', cursive;
+  font-size: 24px;
+  font-weight: bold;
   position: relative;
-  cursor: pointer;
-  padding: 0.5rem;
-  margin: 6rem;
+  border-radius: 12px;
 }
-
 .NavButton:hover {
   filter: brightness(1.5);
   transform: scale(1.5);
-}
+} 

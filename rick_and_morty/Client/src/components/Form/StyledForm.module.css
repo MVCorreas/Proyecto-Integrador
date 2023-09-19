@@ -8,11 +8,11 @@
   padding: 20px;
   height: 100%;
   width: 20%;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  font-size: xx-large;
+  font-family: 'Barriecito', cursive;
+  font-size: x-large;
 }
 
-.Button {
+/* .Button {
   display: flex; 
   justify-content: center; 
   align-items: center;
@@ -26,12 +26,28 @@
   cursor: pointer;
   padding: 0.5rem;
   margin: 6rem auto;
-}
+}*/
 
-.Button:hover {
-  filter: brightness(1.5);
-  transform: scale(2.5);
+
+
+.Button {
+  background: rgba(79, 20, 79, 0.593);
+  cursor: pointer;
+  border: none;
+  padding: 16px 32px;
+  margin-top: 30%;
+  color: azure;
+  font-family: 'Barriecito', cursive;
+  font-size: 24px;
+  font-weight: bold;
+  position: relative;
+  border-radius: 12px;
 }
+.Button:hover {
+  filter: brightness(2);
+  transform: scale(1.5);
+} 
+
 
 .StyledErrors {
   font-size: small;

@@ -3,19 +3,22 @@ import { connect, useDispatch } from "react-redux";
 import React from "react";
 import { filterCards, orderCards } from "../../redux/actions";
 import { useState } from "react";
+import { useSelector } from "react-redux";
 import styles from './StyledFav.module.css';
 
-const Favorites = ({ myFavorites }) => {
-
-  const [aux, setAux] = useState(false)
-  //const [filteredFavorites, setFilteredFavorites] = useState([]);
+const Favorites = () => {
 
   const dispatch = useDispatch();
 
-  const handleOrder = (e) => {
-    dispatch(orderCards(e.target.value));
+  const [aux, setAux] = useState(false);
+
+  const myFavorites = useSelector((state) => state.myFavorites);
+
+  const handleOrder = (event) => {
+    dispatch(orderCards(event.target.value));
     setAux(!aux);
   };
+
   
   const handleFilter = (e) => {
     // const selectedValue = e.target.value;
