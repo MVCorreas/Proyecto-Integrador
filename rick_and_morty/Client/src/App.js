@@ -15,8 +15,8 @@ function App() {
   const [characters, setCharacters] = useState([]);
   const location = useLocation();
   const [access, setAccess] = useState(false);
-  const email = "mvcorreas@gmail.com";
-  const password = "mv1220";
+  // const email = "mvcorreas@gmail.com";
+  // const password = "mv1220";
   const navigate = useNavigate();
 
   // Función para obtener todos los personajes
@@ -75,10 +75,7 @@ function App() {
 
   // Función para eliminar un personaje
   const onClose = (id) => {
-    const charactersFiltered = characters.filter(
-      (character) => character.id !== parseInt(id)
-    );
-    setCharacters(charactersFiltered);
+    setCharacters(characters.filter((character) => character.id !== id));
   };
 
   // Función para validar acceso Login
@@ -136,6 +133,15 @@ function App() {
     !access && navigate('/');
  }, [access, navigate]);
 
+ // Función para desloguearse del sistema
+ const logout = () => {
+  setAccess(false);
+  // Reiniciar la página para que el usuario pueda volver a ingresar sus credenciales. y asi no queden cargadas tarjetas agregadas antes de desloguearse.
+  !access && navigate("/");
+  alert("¡Hasta pronto!");
+  window.location.reload();
+};
+
  let backgroundClass;
  if (location.pathname === "/" || location.pathname === "/home") {
    backgroundClass = "App";
@@ -149,7 +155,7 @@ function App() {
 
   return (
     <div className={backgroundClass}>
-      {location.pathname !== "/" &&  <Nav />}
+      {location.pathname !== "/" &&  <Nav  onLogout={logout}/>}
       {location.pathname !== "/" && location.pathname !== "/about" && location.pathname !== "/favorites" && !location.pathname.startsWith('/detail') && <SearchBar onSearch={onSearch} onRandom={randomCharacter} />}
      <Routes>
       <Route path='/' element={<Form login={login}/>} />

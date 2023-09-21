@@ -1,14 +1,4 @@
 
-
-.AboutBackground {
-  background-image: url('../../Assets/R&MAbout.webp');
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  height: 100vh;
-}
-
 .AboutTitle {
   font-family: 'Monoton', monospace;
   animation: neon1 1.5s ease-in-out infinite alternate;
@@ -16,7 +6,7 @@
   color: white;
   justify-content: center;
   margin-left: 40%;
-  border: 2px blueviolet solid;
+
     border-radius: 5px;
     width: fit-content;
     height: fit-content;
@@ -24,6 +14,15 @@
     margin: 2rem auto;
     background-color: rgba(255, 255, 255, 0.6);
 }
+
+/* @keyframes neon1 {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #5c11ff, 0 0 70px #5c11ff, 0 0 80px #5c11ff, 0 0 100px #5c11ff, 0 0 150px #5c11ff;
+  }
+  to {
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #5c11ff, 0 0 35px #5c11ff, 0 0 40px #5c11ff, 0 0 50px #5c11ff, 0 0 75px #5c11ff;
+  }
+} */
 
 @keyframes neon1 {
   from {
@@ -37,13 +36,12 @@
 .AboutP {
   font-family: 'Barriecito', cursive;
   font-size: x-large;
-  color: rgb(10, 47, 10);
+  color: rgb(25, 5, 87);
   justify-content: center;
   margin: 50px;
   background-color: rgba(255, 255, 255, 0.351);
-  border: 2px blueviolet solid;
   border-radius: 5px;
-  width: fit-content;
+  width: 80%;
   height: fit-content;
   padding: 0.5rem;
   margin: 6rem auto;

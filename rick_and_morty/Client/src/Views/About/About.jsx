@@ -6,7 +6,7 @@ export const About = () => {
   return (
   
       <div className={styles.AboutBackground}> 
-        <h1>About Me</h1>
+        <h1 className={styles.AboutTitle}>Let me tell you my story</h1>
         <AboutText />
       </div>
   );

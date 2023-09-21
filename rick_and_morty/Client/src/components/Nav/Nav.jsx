@@ -2,7 +2,7 @@
 import {Link} from 'react-router-dom'
 import styles from './StyledNav.module.css';
 
-export default function Nav({ onSearch, onRandom }) {
+export default function Nav({ onSearch, onRandom, onLogout }) {
 
   return (
    
@@ -14,12 +14,17 @@ export default function Nav({ onSearch, onRandom }) {
       </Link>
       <Link to='/home'>
         <div > 
-          <button className={styles.NavButton}>Home</button>
+          <button className={styles.NavButton} onSearch={onSearch}>Home</button>
         </div>
       </Link>
       <Link to='/favorites'>
         <div > 
           <button className={styles.NavButton}>Favorites</button>
+        </div>
+      </Link>
+      <Link to="/" >
+        <div>
+          <button className={styles.NavButton} onClick={onLogout}>LogOut</button>
         </div>
       </Link>
     </div>
