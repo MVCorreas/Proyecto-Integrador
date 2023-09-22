@@ -2,7 +2,7 @@
 .DetailCard {
   display: inline-block;
   flex-direction: column;
-  background-color: rgba(255, 255, 255, 0.445);
+  background-color: rgba(255, 255, 255, 0.747);
   text-align: right;
   align-items: flex-start;
   border: 3px solid #ccc;
@@ -20,6 +20,7 @@
     font-size: xxx-large;
     font-weight: 700;
     text-decoration: none;
+    -webkit-text-stroke: 2px rgba(3, 3, 91, 0.406);
     color: white;
     margin-left: 50%;
     border-radius: 5px;
@@ -27,16 +28,16 @@
     height: fit-content;
     padding: 0.5rem;
     margin: 3rem auto;
-  
 
 }
 
+
 @keyframes neon1 {
   from {
-    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #FF11A7, 0 0 70px #FF11A7, 0 0 80px #FF11A7, 0 0 100px #FF11A7, 0 0 150px #FF1177;
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #3d06a4, 0 0 70px #3d06a4, 0 0 80px #3d06a4, 0 0 100px #3d06a4, 0 0 150px #3d06a4;
   }
   to {
-    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #FF11A7, 0 0 35px #FF11A7, 0 0 40px #FF11A7, 0 0 50px #FF11A7, 0 0 75px #FF11A7;
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #3d06a4, 0 0 35px #3d06a4, 0 0 40px #3d06a4, 0 0 50px #3d06a4, 0 0 75px #3d06a4;
   }
 }
   
@@ -55,7 +56,7 @@
     height: 50%;
     margin-top: -30%;
     margin-right: 25%;
-    border: 3px solid #ccc;
+    border: 10px solid #ccc;
     border-radius: 20px;
     object-fit: contain;
   }

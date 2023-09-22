@@ -52,7 +52,7 @@ const handleFavorite = () => {
          )}
       </div>
       <Link to={`/detail/${id}`}>
-        <h2 className={`${styles.Title} ${useLocation().pathname === "/home" ? styles.HomeTitle : styles.FavoritesTitle}`}>{name}</h2>
+        <h2 className={`${styles.HomeTitle} ${useLocation().pathname === "/home" ? styles.HomeTitle : styles.FavoritesTitle}`}>{name}</h2>
       </Link>
       <img className={styles.Image} src={image} alt={`No se encuentra la imagen de ${name}`} />
       <h4 className={styles.Label}>| {status} |</h4>

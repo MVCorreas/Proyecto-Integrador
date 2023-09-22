@@ -7,12 +7,7 @@ export default function Nav({ onSearch, onRandom, onLogout }) {
   return (
    
     <div className={styles.StyledContainer}> 
-      <Link to='/about'>
-        <div> 
-          <button className={styles.NavButton}>About</button>
-        </div>
-      </Link>
-      <Link to='/home'>
+    <Link to='/home'>
         <div > 
           <button className={styles.NavButton} onSearch={onSearch}>Home</button>
         </div>
@@ -20,6 +15,11 @@ export default function Nav({ onSearch, onRandom, onLogout }) {
       <Link to='/favorites'>
         <div > 
           <button className={styles.NavButton}>Favorites</button>
+        </div>
+      </Link>
+      <Link to='/about'>
+        <div> 
+          <button className={styles.NavButton}>About</button>
         </div>
       </Link>
       <Link to="/" >

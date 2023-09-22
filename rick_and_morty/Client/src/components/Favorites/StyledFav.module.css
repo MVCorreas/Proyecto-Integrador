@@ -5,9 +5,8 @@
 	animation: neon1 1.5s ease-in-out infinite alternate;
 	font-size: 2em;
 	padding: 5%;
-	margin-left: 30%;
 	margin-top: 5px;
-	align-items: center;
+	text-align: center;
 	
   }
   

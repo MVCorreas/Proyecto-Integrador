@@ -17,7 +17,7 @@
 }
 
 .AboutBackground {
-  background-image: url('../src/Assets/R&MAbout3.png');
+  background-image: url('../src/Assets/R&MFavorites.jpeg');
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -50,7 +50,7 @@
 }
 
 .DetailContainer {
-    background: url('../src/Assets/R&MFavorites.jpeg');
+    background: url('../src/Assets/R&MAbout4.jpeg');
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;

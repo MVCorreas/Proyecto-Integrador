@@ -36,6 +36,7 @@ const Favorites = () => {
   };
 
   return (
+    <div className={styles.CardCont}>
     <div className={styles.FavoriteContainer}>
     <h1 className={styles.neonText}>My Favorites</h1>
     <div >
@@ -56,6 +57,7 @@ const Favorites = () => {
         <Card key={character.id} id={character.id} character={character} />
       ))}
     </div>
+  </div>
   </div>
   );
   };

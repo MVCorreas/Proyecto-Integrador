@@ -28,7 +28,7 @@ export const AboutText = () => {
           I immediately fell in love with whatever I thought it was at that time. That love drove me to HENRY, to enlightening, and to where I
           am today: my very first steps into a newer universe.
         </p>
-        <p>Hope you enjoy what I have done with this app!</p>
+        <p>Hope you enjoy what I have done!</p>
       </div>
     </div>
   );

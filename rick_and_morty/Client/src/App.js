@@ -48,30 +48,30 @@ function App() {
   };
 
   // Función para obtener un personaje aleatorio
-  const randomCharacter = () => {
-    const randomId = Math.floor(Math.random() * 826) + 1;
+  // const randomCharacter = () => {
+  //   const randomId = Math.floor(Math.random() * 826) + 1;
 
-    axios(`https://rickandmortyapi.com/api/character/${randomId}`)
-      .then(({ data }) => {
-        if (data.name) {
-          const characterExists = characters.includes(data);
+  //   axios(`https://rickandmortyapi.com/api/character/${randomId}`)
+  //     .then(({ data }) => {
+  //       if (data.name) {
+  //         const characterExists = characters.includes(data);
 
-          if (characterExists) {
-            alert("Este personaje ya se encuentra en la lista.");
-          } else {
-            setCharacters((characters) => [...characters, data]);
-          }
-        } else {
-          alert(`¡No hay personajes con el ID proporcionado!`);
-        }
-      })
-      .catch((error) => {
-        alert(
-          `Ocurrió un error al obtener los datos de la API. Por favor, intenta nuevamente más tarde.`
-        );
-        console.error(error);
-      });
-  };
+  //         if (characterExists) {
+  //           alert("Este personaje ya se encuentra en la lista.");
+  //         } else {
+  //           setCharacters((characters) => [...characters, data]);
+  //         }
+  //       } else {
+  //         alert(`¡No hay personajes con el ID proporcionado!`);
+  //       }
+  //     })
+  //     .catch((error) => {
+  //       alert(
+  //         `Ocurrió un error al obtener los datos de la API. Por favor, intenta nuevamente más tarde.`
+  //       );
+  //       console.error(error);
+  //     });
+  // };
 
   // Función para eliminar un personaje
   const onClose = (id) => {
@@ -156,7 +156,7 @@ function App() {
   return (
     <div className={backgroundClass}>
       {location.pathname !== "/" &&  <Nav  onLogout={logout}/>}
-      {location.pathname !== "/" && location.pathname !== "/about" && location.pathname !== "/favorites" && !location.pathname.startsWith('/detail') && <SearchBar onSearch={onSearch} onRandom={randomCharacter} />}
+      {location.pathname !== "/" && location.pathname !== "/about" && location.pathname !== "/favorites" && !location.pathname.startsWith('/detail') && <SearchBar onSearch={onSearch} />}
      <Routes>
       <Route path='/' element={<Form login={login}/>} />
       <Route path='/home' element={<Cards characters={characters} onClose={onClose}/>}/>
