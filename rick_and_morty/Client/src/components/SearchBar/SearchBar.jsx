@@ -15,8 +15,8 @@ export default function SearchBar({onSearch, onRandom}) {
   return (
     <div>
     <div className={styles.StyledSearch}> 
-      <nav className={styles.StyledNav}>
-        <input
+      <nav>
+        <input className={styles.Input}
           type='search'
           placeholder='Add an ID'
           onChange={handleChange}

@@ -31,3 +31,10 @@
   filter: brightness(1.5);
   transform: scale(1.5);
 } 
+
+.Input {
+  border: 3px solid #928c8cc8;
+  font-size: large;
+  width: 150px;
+  height: 40px;
+}
