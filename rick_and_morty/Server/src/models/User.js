@@ -5,18 +5,19 @@ module.exports = (sequelize) => {
       id: {
          type: DataTypes.INTEGER,
          autoIncrement: true,
-         primaryKey: true
+         primaryKey: true,
+         allowNull: false
       },
       email: {
          type: DataTypes.STRING,
          isEmail: true,
-         notNull: false
+         allowNull: false
       },
       password: {
          type: DataTypes.STRING,
          is: [/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/], //regex
          len: [4, 15],
-         notNull: false
+         allowNull: false
       }
    }, { timestamps: false });
-};
+}; 

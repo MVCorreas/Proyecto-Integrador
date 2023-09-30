@@ -124,8 +124,8 @@ function App() {
         alert("Los datos ingresados son inválidos");
       } 
     }  catch (error) {
-      alert(`Ocurrió un error al intentar ingresar. Por favor, intenta nuevamente más tarde.`);
-      console.error(error);
+      //alert(`Ocurrió un error al intentar ingresar. Por favor, intenta nuevamente más tarde.`);
+      console.error({error: error.message});
     }
   }
 

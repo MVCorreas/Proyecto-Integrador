@@ -1,19 +1,28 @@
-const users = require('../utils/users')
+const {User} = require('../DB_connection');
 
-const login = (req, res) => {
-const {email, password} = req.query
-let access = false
+const login = async (req, res) => {
+    try {
+        const { email, password } = req.query;
 
-// const user = users.find(us => us.email === email && us.password === password)
-// user? res.json({access: true}) : res.status(401).json({access: false})
+        if (!email || !password) {
+            return res.status(400).json('Faltan datos');
+        }
 
-users.forEach(user => {
-    if( user.email === email && user.password === password){
-        access = true
+        const foundUser = await User.findOne({ where: { email } });
+
+        if (!foundUser) {
+            return res.status(404).json('Usuario no encontrado');
+        } else {
+            
+            if (foundUser.password !== password) {
+                return res.status(403).json('Contraseña incorrecta');
+            }
+        }
+
+        return res.status(200).json({ access: true });
+    } catch (error) {
+        return res.status(500).json({ error: error.message });
     }
-})
-res.json({access})
-}
-// ? Donde vemos el error en Front? Punto a corregir
+};
 
 module.exports = login;

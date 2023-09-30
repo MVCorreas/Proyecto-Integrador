@@ -17,6 +17,16 @@ const sequelize = new Sequelize(
    { logging: false, native: false }
 );
 
+// Para probar la conexion a la BDD:
+sequelize
+  .authenticate()
+  .then(() => {
+    console.log("Conectado a:", `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}/rickandmorty`);
+  })
+  .catch((error) => {
+    console.log("Fallo: ", error.message);
+  });
+
 // EJERCICIO 05
 // Debajo de este comentario puedes ejecutar la función de los modelos.
 
