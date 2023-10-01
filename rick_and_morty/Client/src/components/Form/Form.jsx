@@ -29,7 +29,8 @@ export const Form = ({login}) => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        login(userData); 
+        const { email, password } = userData;
+        login(email, password); 
     }
 
     return (
