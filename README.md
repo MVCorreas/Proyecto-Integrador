@@ -1,3 +1,0 @@
-# Proyecto-Integrador
-Hello!
-Hola!
