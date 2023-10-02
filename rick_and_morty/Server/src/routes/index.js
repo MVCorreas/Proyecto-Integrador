@@ -1,22 +1,23 @@
-const router = require('express').Router()
-/*
-const express = require('express')
-const router = express.Router()
-*/
-router.get('/', (req, res) => {
-    res.send('hello world desde Router')
-  })
-const login = require('../controllers/login')
-const getCharById = require('../controllers/getCharById')
-const {deleteFav, postFav} = require('../controllers/handleFavorites')
 
-// http://localhost:3001/rickandmorty/character/5 ===> 
-// traer todos los personajes router.get('/character')
-router.get("/character/:id", getCharById)
-router.get("/login", login)
-router.post("/fav", postFav)
-router.delete("/fav/:id", deleteFav)
+const router = require('express').Router();
 
+const getCharById = require('../controllers/getCharById');
+const login = require('../controllers/login');
+const postUser = require('../controllers/postUser');
+const postFav = require('../controllers/postFav');
+const deleteFav = require('../controllers/deleteFav');
 
+router.get("/login", login); // Define /rickandmorty/login route before the catch-all route
+
+// Rest of the route definitions
+router.get("/", (req, res) => {
+    res.send('hello world desde Router');
+});
+
+// Other routes
+router.get("/character/:id", getCharById);
+router.post("/login", postUser);
+router.post("/fav", postFav);
+router.delete("/fav/:id", deleteFav);
 
 module.exports = router;

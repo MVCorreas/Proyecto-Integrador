@@ -1,6 +1,8 @@
 const express = require('express')
 const server = express()
 const router = require('./routes/index')
+const morgan = require("morgan");
+//const cookieParser = require("cookie-parser");
 // Libreria Dotenv -> guardar nuestras variables de entorno
 // .env
 
@@ -20,8 +22,9 @@ server.use((req, res, next) => {
   next();
 });
 
-server.use(express.json())
-
-server.use('/rickandmorty', router)
+server.use(morgan("dev"));
+server.use(express.json());
+server.use("/rickandmorty", router);
+//server.use(cookieParser());
 
 module.exports = server;
