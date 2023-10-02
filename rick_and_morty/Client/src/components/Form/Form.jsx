@@ -28,9 +28,10 @@ export const Form = ({login}) => {
 
 
     const handleSubmit = (event) => {
-        event.preventDefault();
-        login(userData); 
-    }
+      event.preventDefault();
+      const { email, password } = userData;
+      login(userData); 
+  }
 
     return (
         <div className={styles.FormContainer}> 
