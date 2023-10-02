@@ -15,9 +15,10 @@ function App() {
   const [characters, setCharacters] = useState([]);
   const location = useLocation();
   const [access, setAccess] = useState(false);
-  // const email = "mvcorreas@gmail.com";
-  // const password = "mv1220";
+  const email = "mvcorreas@gmail.com";
+  const password = "mv1220";
   const navigate = useNavigate();
+  
 
   // Función para obtener todos los personajes
   const onSearch = async (id) => { //no es necesario req, res si no trabajamos con peticiones HTTP express
@@ -104,28 +105,33 @@ function App() {
   //   });
   // }
 
+
   //FUNCION LOGIN ASYNC AWAIT
   async function login(userData) {
     try {
       const { email, password } = userData;
       const URL = 'http://localhost:3001/rickandmorty/login/';
-      const response = await axios.get(URL + `?email=${email}&password=${password}`); // tambien puedo usar params: 
-      //const response = await axios.get(URL, {params: { email, password }});
+      //const response = await axios.get(URL + `?email=${email}&password=${password}`); // tambien puedo usar params: 
+      const response = await axios.get(URL, {params: { email, password }});
+      
       
       const { access } = response.data;
 
+      setAccess(access);
+      access && navigate("/home");
+
       if (access) {
         // Login successful
-       setAccess(true);
-        alert("Login Exitoso");
+       
+        alert("Welcome!");
         navigate('/home');
       } else {
         // Login failed
-        alert("Los datos ingresados son inválidos");
+        alert("Invalid credentials.");
       } 
     }  catch (error) {
       alert(`Ocurrió un error al intentar ingresar. Por favor, intenta nuevamente más tarde.`);
-      console.error(error);
+      console.error({ error: error.message });
     }
   }
 
