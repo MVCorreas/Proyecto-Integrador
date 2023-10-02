@@ -13,10 +13,10 @@ conn
 .then(async () => {
   try {
     const newUser = await User.create({
-      email: "ejemplo@gmail.com",
-      password: "1Password",
+      email: "mvcorreas@gmail.com",
+      password: "mv1220",
     });
-    console.log("Se creo el usuario: ejemplo@gmail.com");
+    console.log("Se creo el usuario: mvcorreas@gmail.com");
 
   } catch (error) {
     console.log("Error creando usuario", error);
