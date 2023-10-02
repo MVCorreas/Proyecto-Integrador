@@ -1,6 +1,6 @@
 require('dotenv').config();
 const { Sequelize } = require('sequelize');
-const { DB_USER, DB_PASSWORD, DB_HOST, DB_PORT } = process.env;
+const { DB_USER, DB_PASSWORD, DB_HOST, DB_PORT, DB_DEPLOY } = process.env;
 const FavoriteModel = require('../src/models/Favorite');
 const UserModel = require('../src/models/User');
 // const User = require('../src/models/User');
@@ -11,10 +11,16 @@ const UserModel = require('../src/models/User');
 // Recuerda pasarle la información de tu archivo '.env'.
 
 // URL ----> postgres://DB_USER:DB_PASSWORD@DB_HOST/rickandmorty
+// const sequelize = new Sequelize(
+//    // URL
+//    `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}/rickandmorty`,
+//    { logging: false, native: false }
+// );
+
 const sequelize = new Sequelize(
-   // URL
-   `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}/rickandmorty`,
-   { logging: false, native: false }
+  // URL
+  DB_DEPLOY,
+  { logging: false, native: false }
 );
 
 // Para probar la conexion a la BDD:
